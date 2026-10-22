@@ -5,167 +5,199 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3D美术 | 个人作品集</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box
+}
+
 body{
-  background:#070812;
-  color:#e6edf7;
-  font-family:"微软雅黑",sans-serif;
+  background:linear-gradient(135deg,#ffeef8 0%,#e0f4ff 50%,#fff1f8 100%);
+  color:#2b3a55;
+  font-family:"微软雅黑","Microsoft YaHei",sans-serif;
   line-height:1.7;
   overflow-x:hidden;
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(30,80,200,0.08) 0%, transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(20,160,220,0.06) 0%, transparent 40%);
 }
-.bg-glow{
-  position:fixed;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index:-1;
-}
+
 .container{
-  max-width:1200px;
+  max-width:1100px;
   margin:0 auto;
-  padding:50px 24px;
+  padding:40px 20px;
 }
+
 header{
   text-align:center;
-  margin-bottom:70px;
+  margin-bottom:60px;
   position:relative;
 }
+
 h1{
-  font-size:42px;
-  background:linear-gradient(90deg,#40a9ff,#42e5ff,#40a9ff);
-  background-size:200% auto;
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:gradientMove 4s linear infinite;
-  margin-bottom:16px;
+  font-size:44px;
+  color:#ff6fa5;
+  text-shadow:3px 3px 0 #fff, 6px 6px 0 #ffd1e4;
+  margin-bottom:14px;
+  letter-spacing:2px;
 }
-@keyframes gradientMove{
-  0%{background-position:0 center}
-  100%{background-position:200% center}
-}
+
 .sub-title{
-  color:#93a3c2;
-  font-size:18px;
-  max-width:750px;
-  margin:0 auto 30px;
+  background:#fff;
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:999px;
+  border:3px solid #ffb3d1;
+  color:#4a5568;
+  font-size:17px;
+  box-shadow:0 8px 0 #ffd1e4;
 }
+
 .download-btn{
   display:inline-block;
-  padding:15px 32px;
-  background:linear-gradient(135deg,#1874d1,#0ea5e9);
+  margin-top:24px;
+  padding:16px 34px;
+  background:linear-gradient(135deg,#74c0ff,#539dff);
   color:#fff;
   text-decoration:none;
-  border-radius:10px;
-  font-size:17px;
-  box-shadow:0 0 15px rgba(14,165,233,0.35);
-  transition:0.3s ease;
-  border:1px solid rgba(66,229,255,0.25);
+  border-radius:18px;
+  font-size:18px;
+  font-weight:bold;
+  border:4px solid #fff;
+  box-shadow:0 10px 0 #3b82f6;
+  transition:0.2s;
 }
+
 .download-btn:hover{
-  box-shadow:0 0 25px rgba(14,165,233,0.6);
-  transform:translateY(-3px);
+  transform:translateY(-4px);
+  box-shadow:0 14px 0 #3b82f6;
 }
+
 section{
-  margin:70px 0;
+  margin:60px 0;
 }
+
 h2{
-  font-size:24px;
-  color:#c6e2ff;
-  border-left:4px solid #0ea5e9;
-  padding-left:14px;
-  margin-bottom:28px;
+  font-size:26px;
+  color:#4a90ff;
+  margin-bottom:24px;
+  display:inline-block;
+  position:relative;
 }
+
+h2::before{
+  content:"";
+  width:14px;
+  height:14px;
+  background:#ff6fa5;
+  border-radius:50%;
+  display:inline-block;
+  margin-right:10px;
+  box-shadow:0 0 0 4px #ffd1e4;
+}
+
 .about-card{
-  border:1px solid rgba(14,165,233,0.22);
-  border-radius:12px;
+  background:#fff;
+  border-radius:24px;
   padding:28px;
-  background:rgba(12,18,32,0.65);
-  backdrop-filter:blur(8px);
-  box-shadow:0 0 18px rgba(14,165,233,0.08);
+  border:4px solid #ffb3d1;
+  box-shadow:0 12px 0 #ffd1e4;
 }
+
 .skill-tag{
   display:inline-block;
-  padding:6px 14px;
-  margin:6px 8px 6px 0;
-  background:rgba(14,165,233,0.12);
-  border:1px solid rgba(14,165,233,0.3);
-  color:#7dd3fc;
-  border-radius:6px;
+  padding:8px 16px;
+  margin:8px 10px 8px 0;
+  background:#eaf4ff;
+  color:#2b6cb0;
+  border-radius:12px;
+  border:3px solid #b3dcff;
   font-size:14px;
+  font-weight:bold;
 }
+
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(340px,1fr));
-  gap:22px;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
 }
+
 .gallery-item{
-  border:1px solid rgba(14,165,233,0.18);
-  border-radius:12px;
+  background:#fff;
+  border-radius:22px;
   overflow:hidden;
-  background:rgba(12,18,32,0.55);
-  transition:0.3s;
+  border:4px solid #fff;
+  box-shadow:0 10px 0 #ffd1e4;
+  transition:0.25s;
   cursor:pointer;
 }
+
 .gallery-item:hover{
-  border-color:rgba(14,165,233,0.6);
-  box-shadow:0 0 22px rgba(14,165,233,0.25);
-  transform:translateY(-4px);
+  transform:translateY(-6px) rotate(-1deg);
+  box-shadow:0 16px 0 #ffb3d1;
 }
+
 .gallery-item img{
   width:100%;
   display:block;
-  transition:transform 0.4s ease;
+  transition:0.3s;
 }
+
 .gallery-item:hover img{
-  transform:scale(1.05);
+  transform:scale(1.06);
 }
+
 .work-info{
   padding:14px 16px;
-  color:#b4c8e8;
-  font-size:14px;
+  color:#4a5568;
+  font-weight:bold;
+  text-align:center;
 }
+
 footer{
   text-align:center;
-  margin-top:90px;
+  margin-top:80px;
   padding-top:30px;
-  border-top:1px solid rgba(14,165,233,0.15);
-  color:#647494;
+  color:#718096;
+  font-size:14px;
 }
+
 .modal{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.88);
+  background:rgba(0,0,0,0.7);
   z-index:999;
   display:none;
   align-items:center;
   justify-content:center;
   padding:20px;
 }
+
 .modal img{
   max-width:95%;
   max-height:90vh;
-  border-radius:8px;
+  border-radius:16px;
+  border:6px solid #fff;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
 }
-.modal.active{display:flex}
+
+.modal.active{
+  display:flex;
+}
 </style>
 </head>
 <body>
-<div class="bg-glow"></div>
+
 <div class="container">
+
   <header>
     <h1>3D美术 · 个人作品集</h1>
-    <p class="sub-title">专注三维资产、场景与道具建模，精通写实风格渲染，持续打磨作品质感</p>
-    <a class="download-btn" href="作品集（1）.pdf" target="_blank">📄 查看完整PDF作品集</a>
+    <p class="sub-title">专注三维资产、场景与道具建模，把作品做成更有趣的视觉展示</p>
+    <a class="download-btn" href="portfolio.pdf" target="_blank">📄 查看完整PDF作品集</a>
   </header>
 
   <section>
     <h2>关于我</h2>
     <div class="about-card">
-      <p style="margin-bottom:16px;">你好，我是一名3D美术创作者，擅长硬表面道具、小型场景资产制作，熟悉全流程：建模→拓扑→UV拆分→材质贴图→渲染输出。</p>
-      <p style="margin-bottom:14px;">求职意向：3D建模/地编美术、资产美术岗位，能独立完成道具、场景模型制作与材质渲染。</p>
+      <p style="margin-bottom:16px;">你好，我是一名3D美术创作者，擅长硬表面道具、小型场景资产制作，熟悉建模、拓扑、UV拆分、材质贴图和渲染输出。</p>
+      <p style="margin-bottom:14px;">求职意向：3D建模 / 地编美术 / 资产美术岗位，希望用细节和质感完成高质量作品。</p>
       <div>
         <span class="skill-tag">3ds Max</span>
         <span class="skill-tag">Blender</span>
@@ -181,48 +213,59 @@ footer{
   <section>
     <h2>作品展示（点击图片放大）</h2>
     <div class="gallery">
-      <div class="gallery-item" data-img="屏幕截图2026-10-22 111105.png">
-        <img src="屏幕截图2026-10-22 111105.png">
+
+      <div class="gallery-item" data-img="work01.png">
+        <img src="work01.png">
         <div class="work-info">道具资产｜3ds Max + SP贴图渲染</div>
       </div>
-      <div class="gallery-item" data-img="屏幕截图2026-10-22 111106.png">
-        <img src="屏幕截图2026-10-22 111106.png">
+
+      <div class="gallery-item" data-img="work02.png">
+        <img src="work02.png">
         <div class="work-info">场景物件｜硬表面建模</div>
       </div>
-      <div class="gallery-item" data-img="屏幕截图2026-10-22 111111.png">
-        <img src="屏幕截图2026-10-22 111111.png">
+
+      <div class="gallery-item" data-img="work03.png">
+        <img src="work03.png">
         <div class="work-info">写实道具｜材质表现练习</div>
       </div>
-      <div class="gallery-item" data-img="屏幕截图2026-10-22 111113.png">
-        <img src="屏幕截图2026-10-22 111113.png">
+
+      <div class="gallery-item" data-img="work04.png">
+        <img src="work04.png">
         <div class="work-info">组合资产｜CR渲染出图</div>
       </div>
-      <div class="gallery-item" data-img="屏幕截图2026-10-22 111121.png">
-        <img src="屏幕截图2026-10-22 111121.png">
+
+      <div class="gallery-item" data-img="work05.png">
+        <img src="work05.png">
         <div class="work-info">创意道具｜光影渲染练习</div>
       </div>
+
     </div>
   </section>
 
   <footer>
-    <p>联系方式：（你可以改成自己邮箱/微信，不需要就删掉这一行）</p>
-    <p style="margin-top:8px">© 2026 3D美术作品集</p>
+    <p>联系方式：（可填写邮箱或微信）</p>
+    <p style="margin-top:8px;">© 2026 3D美术作品集</p>
   </footer>
+
 </div>
 
 <div class="modal" id="imgModal">
   <img id="modalImg">
 </div>
+
 <script>
 const modal = document.getElementById('imgModal');
 const modalImg = document.getElementById('modalImg');
+
 document.querySelectorAll('.gallery-item').forEach(item=>{
   item.onclick = ()=>{
     modalImg.src = item.dataset.img;
     modal.classList.add('active');
   }
-})
+});
+
 modal.onclick = ()=> modal.classList.remove('active');
 </script>
+
 </body>
 </html>
