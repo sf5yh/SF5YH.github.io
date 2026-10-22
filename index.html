@@ -8,15 +8,22 @@
 *{
   margin:0;
   padding:0;
-  box-sizing:border-box
+  box-sizing:border-box;
 }
 
 body{
-  background:linear-gradient(135deg,#ffeef8 0%,#e0f4ff 50%,#fff1f8 100%);
-  color:#2b3a55;
-  font-family:"微软雅黑","Microsoft YaHei",sans-serif;
+  /* 橙色系流动渐变背景 */
+  background:linear-gradient(135deg,#ffecd2 0%,#fcb69f 50%,#ff9a56 100%);
+  background-size:300% 300%;
+  animation:bgMove 10s ease infinite;
+  color:#4b3621;
+  font-family:"微软雅黑",sans-serif;
   line-height:1.7;
-  overflow-x:hidden;
+}
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 .container{
@@ -28,137 +35,121 @@ body{
 header{
   text-align:center;
   margin-bottom:60px;
-  position:relative;
 }
-
 h1{
   font-size:44px;
-  color:#ff6fa5;
-  text-shadow:3px 3px 0 #fff, 6px 6px 0 #ffd1e4;
-  margin-bottom:14px;
+  color:#ff7b26;
+  text-shadow:3px 3px 0 #fff8ee;
+  margin-bottom:12px;
   letter-spacing:2px;
 }
-
 .sub-title{
   background:#fff;
   display:inline-block;
-  padding:12px 24px;
+  padding:12px 26px;
   border-radius:999px;
-  border:3px solid #ffb3d1;
-  color:#4a5568;
+  border:4px solid #ffb988;
+  box-shadow:0 8px 0 #ffddc2;
   font-size:17px;
-  box-shadow:0 8px 0 #ffd1e4;
 }
-
 .download-btn{
   display:inline-block;
   margin-top:24px;
-  padding:16px 34px;
-  background:linear-gradient(135deg,#74c0ff,#539dff);
+  padding:15px 32px;
+  background:linear-gradient(135deg,#ff9547,#ff6b24);
   color:#fff;
   text-decoration:none;
-  border-radius:18px;
-  font-size:18px;
   font-weight:bold;
+  font-size:18px;
+  border-radius:20px;
   border:4px solid #fff;
-  box-shadow:0 10px 0 #3b82f6;
+  box-shadow:0 9px 0 #e65c1c;
   transition:0.2s;
 }
-
 .download-btn:hover{
   transform:translateY(-4px);
-  box-shadow:0 14px 0 #3b82f6;
+  box-shadow:0 13px 0 #e65c1c;
 }
 
 section{
   margin:60px 0;
 }
-
 h2{
   font-size:26px;
-  color:#4a90ff;
-  margin-bottom:24px;
-  display:inline-block;
-  position:relative;
+  color:#ff6b24;
+  margin-bottom:22px;
+  display:flex;
+  align-items:center;
 }
-
 h2::before{
   content:"";
   width:14px;
   height:14px;
-  background:#ff6fa5;
+  background:#ff9547;
   border-radius:50%;
-  display:inline-block;
   margin-right:10px;
-  box-shadow:0 0 0 4px #ffd1e4;
+  box-shadow:0 0 0 4px #ffddc2;
 }
 
 .about-card{
   background:#fff;
-  border-radius:24px;
-  padding:28px;
-  border:4px solid #ffb3d1;
-  box-shadow:0 12px 0 #ffd1e4;
+  border-radius:26px;
+  padding:30px;
+  border:4px solid #ffb988;
+  box-shadow:0 12px 0 #ffddc2;
 }
-
 .skill-tag{
   display:inline-block;
   padding:8px 16px;
-  margin:8px 10px 8px 0;
-  background:#eaf4ff;
-  color:#2b6cb0;
-  border-radius:12px;
-  border:3px solid #b3dcff;
-  font-size:14px;
+  margin:8px 8px 8px 0;
+  background:#ffefdd;
+  color:#d45a18;
+  border:3px solid #ffc89e;
+  border-radius:14px;
   font-weight:bold;
 }
 
 .gallery{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:24px;
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  gap:26px;
 }
-
 .gallery-item{
   background:#fff;
-  border-radius:22px;
+  border-radius:24px;
   overflow:hidden;
   border:4px solid #fff;
-  box-shadow:0 10px 0 #ffd1e4;
-  transition:0.25s;
+  box-shadow:0 10px 0 #ffc89e;
   cursor:pointer;
+  transition:0.25s;
 }
-
 .gallery-item:hover{
-  transform:translateY(-6px) rotate(-1deg);
-  box-shadow:0 16px 0 #ffb3d1;
+  transform:translateY(-6px) rotate(-0.8deg);
+  box-shadow:0 16px 0 #ff9547;
 }
-
 .gallery-item img{
   width:100%;
   display:block;
   transition:0.3s;
 }
-
 .gallery-item:hover img{
-  transform:scale(1.06);
+  transform:scale(1.05);
 }
-
 .work-info{
-  padding:14px 16px;
-  color:#4a5568;
-  font-weight:bold;
+  padding:14px;
   text-align:center;
+  font-weight:bold;
+  background:#fff7ee;
 }
 
 footer{
   text-align:center;
-  margin-top:80px;
-  padding-top:30px;
-  color:#718096;
-  font-size:14px;
+  margin-top:90px;
+  color:#6b4b32;
+  text-shadow:0 1px 3px rgba(255,255,255,0.5);
 }
 
+/* 点击放大弹窗 */
 .modal{
   position:fixed;
   inset:0;
@@ -169,35 +160,31 @@ footer{
   justify-content:center;
   padding:20px;
 }
-
 .modal img{
-  max-width:95%;
+  max-width:94%;
   max-height:90vh;
-  border-radius:16px;
+  border-radius:18px;
   border:6px solid #fff;
-  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  box-shadow:0 20px 50px rgba(0,0,0,0.45);
 }
-
 .modal.active{
   display:flex;
 }
 </style>
 </head>
 <body>
-
 <div class="container">
-
   <header>
     <h1>3D美术 · 个人作品集</h1>
-    <p class="sub-title">专注三维资产、场景与道具建模，把作品做成更有趣的视觉展示</p>
-    <a class="download-btn" href="portfolio.pdf" target="_blank">📄 查看完整PDF作品集</a>
+    <p class="sub-title">专注三维资产、场景与道具建模</p>
+    <a class="download-btn" href="PDF" target="_blank">📄 查看完整PDF作品集</a>
   </header>
 
   <section>
     <h2>关于我</h2>
     <div class="about-card">
       <p style="margin-bottom:16px;">你好，我是一名3D美术创作者，擅长硬表面道具、小型场景资产制作，熟悉建模、拓扑、UV拆分、材质贴图和渲染输出。</p>
-      <p style="margin-bottom:14px;">求职意向：3D建模 / 地编美术 / 资产美术岗位，希望用细节和质感完成高质量作品。</p>
+      <p style="margin-bottom:14px;">求职意向：3D建模 / 地编美术 / 资产美术岗位，注重作品质感与细节表现。</p>
       <div>
         <span class="skill-tag">3ds Max</span>
         <span class="skill-tag">Blender</span>
@@ -213,40 +200,33 @@ footer{
   <section>
     <h2>作品展示（点击图片放大）</h2>
     <div class="gallery">
-
-      <div class="gallery-item" data-img="work01.png">
-        <img src="work01.png">
-        <div class="work-info">道具资产｜3ds Max + SP贴图渲染</div>
+      <div class="gallery-item" data-img="atgrr.png">
+        <img src="atgrr.png">
+        <div class="work-info">作品一｜3ds Max建模渲染</div>
       </div>
-
-      <div class="gallery-item" data-img="work02.png">
-        <img src="work02.png">
-        <div class="work-info">场景物件｜硬表面建模</div>
+      <div class="gallery-item" data-img="ft.png">
+        <img src="ft.png">
+        <div class="work-info">作品二｜硬表面道具</div>
       </div>
-
-      <div class="gallery-item" data-img="work03.png">
-        <img src="work03.png">
-        <div class="work-info">写实道具｜材质表现练习</div>
+      <div class="gallery-item" data-img="hj.jpg">
+        <img src="hj.jpg">
+        <div class="work-info">作品三｜场景资产</div>
       </div>
-
-      <div class="gallery-item" data-img="work04.png">
-        <img src="work04.png">
-        <div class="work-info">组合资产｜CR渲染出图</div>
+      <div class="gallery-item" data-img="iy.png">
+        <img src="iy.png">
+        <div class="work-info">作品四｜材质练习</div>
       </div>
-
-      <div class="gallery-item" data-img="work05.png">
-        <img src="work05.png">
-        <div class="work-info">创意道具｜光影渲染练习</div>
+      <div class="gallery-item" data-img="jg.jpg">
+        <img src="jg.jpg">
+        <div class="work-info">作品五｜卡通风格资产</div>
       </div>
-
     </div>
   </section>
 
   <footer>
-    <p>联系方式：（可填写邮箱或微信）</p>
+    <p>联系方式：你可以在这里填写微信或者邮箱</p>
     <p style="margin-top:8px;">© 2026 3D美术作品集</p>
   </footer>
-
 </div>
 
 <div class="modal" id="imgModal">
@@ -256,16 +236,13 @@ footer{
 <script>
 const modal = document.getElementById('imgModal');
 const modalImg = document.getElementById('modalImg');
-
 document.querySelectorAll('.gallery-item').forEach(item=>{
   item.onclick = ()=>{
     modalImg.src = item.dataset.img;
     modal.classList.add('active');
   }
-});
-
+})
 modal.onclick = ()=> modal.classList.remove('active');
 </script>
-
 </body>
 </html>
