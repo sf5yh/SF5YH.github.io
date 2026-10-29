@@ -1,351 +1,533 @@
 <!DOCTYPE html>
-<html lang="zh‑CN">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF‑8">
-    <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
-    <title>谭雪情 | 3D次世代游戏模型师</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border‑box;
-            font-family: "Microsoft YaHei", sans‑serif;
-        }
-        html {
-            scroll‑behavior: smooth;
-        }
-        body {
-            background‑color: #12151c;
-            color: #e2e6ed;
-            line‑height: 1.8;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>谭雪情｜3D次世代游戏模型师作品集</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif;}
+html{scroll-behavior:smooth;}
+body{
+  background:linear-gradient(140deg,#fff9ed,#ffe7c9);
+  color:#523f2f;
+  line-height:1.85;
+}
+/*顶部导航*/
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+  padding:18px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(255,255,255,0.62);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid #ffc488;
+}
+.logo{font-size:21px;font-weight:bold;color:#ff7800;letter-spacing:1px;}
+nav{display:flex;gap:24px;}
+nav a{
+  text-decoration:none;
+  color:#5c4836;
+  font-size:14.5px;
+}
+nav a:hover{color:#ff7800;}
+.nav-btn{
+  padding:8px 20px;
+  border-radius:25px;
+  background:linear-gradient(90deg,#ff9538,#ff6b00);
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 4px 12px #ff880033;
+}
 
-        /* 顶部透明导航栏 滚动后变深色 */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z‑index: 999;
-            padding: 26px 60px;
-            display: flex;
-            justify‑content: space‑between;
-            align‑items: center;
-            background‑color: transparent;
-            transition: background 0.3s;
-        }
-        header.scrolled {
-            background‑color: rgba(18,21,28,0.92);
-            backdrop‑filter: blur(8px);
-        }
-        .logo {
-            font‑size: 22px;
-            font‑weight: 600;
-            letter‑spacing: 2px;
-            color:#fff;
-        }
-        nav a {
-            text‑decoration: none;
-            color:#b0b8c4;
-            margin: 0 16px;
-            font‑size:15px;
-        }
-        nav a:hover {
-            color:#58b7ff;
-        }
-        .btn‑contact‑nav{
-            padding:8px 22px;
-            border‑radius:30px;
-            background‑color:#276099;
-            color:#fff;
-            text‑decoration:none;
-            font‑size:14px;
-        }
+/*首屏*/
+.hero{
+  min-height:100vh;
+  padding:130px 50px 90px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+}
+.hero-text h1{font-size:54px;color:#4e3c2d;margin-bottom:8px;}
+.hero-sub{color:#ff7800;font-size:15px;letter-spacing:2px;margin-bottom:12px;}
+.hero-job{font-size:18px;color:#705b47;margin-bottom:30px;}
+.hero-buttons{display:flex;gap:15px;margin-bottom:35px;}
+.btn-orange{
+  padding:12px 28px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#ff9538,#ff6b00);
+  color:#fff;
+  text-decoration:none;
+}
+.btn-light{
+  padding:12px 28px;
+  border-radius:30px;
+  background:#ffffff;
+  color:#ff7800;
+  border:1px solid #ffcd9c;
+  text-decoration:none;
+}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:9px;}
+.tag{
+  padding:6px 15px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.7);
+  color:#ff7800;
+  border:1px solid #ffcd9c;
+  font-size:13px;
+}
+.hero-img-box{display:flex;justify-content:center;}
+.avatar-box{
+  width:330px;height:410px;
+  border-radius:22px;
+  background:linear-gradient(150deg,#ffb266,#ff7800);
+  padding:13px;
+}
+.avatar-box img{width:100%;height:100%;object-fit:cover;border-radius:16px;border:3px solid #fff;}
 
-        /* 首屏Hero全屏 */
-        .hero {
-            min‑height:100vh;
-            display:flex;
-            align‑items:center;
-            padding:0 80px;
-            background: radial‑gradient(circle at 20% 30%, #1c2b40 0%, #12151c 70%);
-        }
-        .hero‑content{
-            max‑width:650px;
-        }
-        .hero‑sub{
-            color:#58b7ff;
-            font‑size:14px;
-            letter‑spacing:3px;
-            margin‑bottom:14px;
-        }
-        .hero h1{
-            font‑size:64px;
-            margin‑bottom:10px;
-        }
-        .hero‑job{
-            font‑size:20px;
-            color:#a0b4cc;
-            margin‑bottom:32px;
-        }
-        .hero‑btns a{
-            display:inline‑block;
-            padding:12px 28px;
-            border‑radius:32px;
-            text‑decoration:none;
-            margin‑right:14px;
-            font‑size:15px;
-        }
-        .btn‑works{
-            background‑color:#276099;
-            color:#fff;
-        }
-        .btn‑resume{
-            border:1px solid #445570;
-            color:#e2e6ed;
-        }
-        /* 技能胶囊标签 */
-        .tag‑wrap{
-            margin‑top:40px;
-        }
-        .tag{
-            display:inline‑block;
-            background‑color:rgba(88,183,255,0.12);
-            border:1px solid #2c4463;
-            color:#78bfff;
-            padding:7px 16px;
-            border‑radius:24px;
-            font‑size:13px;
-            margin:6px 5px;
-        }
-        .scroll‑hint{
-            position:absolute;
-            bottom:40px;
-            left:50%;
-            transform:translateX(-50%);
-            opacity:0.45;
-            font‑size:13px;
-        }
+/*通用区块 全部纵向往下堆叠，页面变长*/
+section{padding:85px 55px;}
+.section-title{
+  font-size:31px;
+  border-left:5px solid #ff7800;
+  padding-left:14px;
+  margin-bottom:32px;
+  color:#4e3c2d;
+}
+.card{
+  background:rgba(255,255,255,0.64);
+  border-radius:20px;
+  padding:30px;
+  border:1px solid #ffc488;
+  margin-bottom:24px;
+}
+.card h3{color:#ff7800;margin-bottom:13px;font-size:20px;}
 
-        /* 通用区块 */
-        section{
-            padding:100px 80px;
-        }
-        .section‑title{
-            font‑size:34px;
-            margin‑bottom:30px;
-            color:#ffffff;
-            border‑left:4px solid #58b7ff;
-            padding‑left:14px;
-        }
+/*两栏卡片*/
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
 
-        /* 关于我 */
-        #about p{
-            max‑width:780px;
-            color:#b0b8c4;
-            font‑size:16px;
-        }
+/*技能进度条*/
+.bar-item{margin-bottom:20px;}
+.bar-row{display:flex;justify-content:space-between;margin-bottom:6px;}
+.bar-bg{height:12px;background:rgba(255,255,255,0.6);border-radius:8px;overflow:hidden;}
+.bar-fill{height:100%;background:linear-gradient(90deg,#ff9538,#ff6b00);width:0;transition:1.3s;}
 
-        /* 作品集网格 */
-        .work‑grid{
-            display:grid;
-            grid‑template‑columns: repeat(auto‑fill, minmax(320px,1fr));
-            gap:28px;
-        }
-        .work‑card{
-            background‑color:#1b202b;
-            border‑radius:14px;
-            overflow:hidden;
-            border:1px solid #272d3b;
-            transition: 0.25s;
-        }
-        .work‑card:hover{
-            transform: translateY(-6px);
-            border‑color:#345882;
-        }
-        .work‑card img{
-            width:100%;
-            aspect‑ratio:16 / 10;
-            object‑fit:cover;
-            display:block;
-        }
-        .work‑desc{
-            padding:16px 20px;
-        }
-        .work‑desc h4{
-            margin‑bottom:6px;
-        }
-        .work‑desc p{
-            color:#93a2b8;
-            font‑size:14px;
-        }
+/*作品网格*/
+.work-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:26px;
+}
+.work-card{
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid #ffcd9c;
+  transition:0.28s;
+}
+.work-card:hover{transform:translateY(-8px);box-shadow:0 12px 26px #ff880022;}
+.work-card img{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;}
+.work-desc{padding:18px;}
+.work-desc h4{margin-bottom:7px;color:#4e3c2d;}
+.work-desc p{font-size:14px;color:#75604c;}
 
-        /* 简历区块 */
-        #resume{
-            background‑color:#161a23;
-            margin:0 40px;
-            border‑radius:20px;
-        }
-        .resume‑block{
-            margin‑bottom:34px;
-        }
-        .resume‑block h3{
-            color:#58b7ff;
-            margin‑bottom:10px;
-        }
-        .resume‑block p{
-            color:#b0b8c4;
-        }
+/*时间线*/
+.timeline{border-left:3px solid #ffbc77;padding-left:28px;}
+.timeline-item{position:relative;margin-bottom:34px;}
+.timeline-item::before{
+  content:"";
+  width:13px;height:13px;
+  border-radius:50%;
+  background:#ff7800;
+  position:absolute;
+  left:-34px;top:5px;
+  box-shadow:0 0 0 4px #ffe2c4;
+}
 
-        /* 联系 */
-        #contact{
-            text‑align:center;
-        }
-        .contact‑text{
-            margin‑top:20px;
-            font‑size:17px;
-            color:#b0b8c4;
-        }
+/*图片弹窗*/
+.img-modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,0.85);
+  z-index:1000;
+  display:none;
+  align-items:center;justify-content:center;
+}
+.img-modal img{max-width:90%;max-height:90vh;border-radius:10px;}
+.close-modal{position:absolute;top:25px;right:35px;color:#fff;font-size:34px;cursor:pointer;}
 
-        /* 移动端适配 */
-        @media(max‑width:800px){
-            header{
-                padding:18px 20px;
-            }
-            nav a{
-                margin:0 7px;
-                font‑size:13px;
-            }
-            .hero{
-                padding:0 20px;
-            }
-            .hero h1{
-                font‑size:42px;
-            }
-            section{
-                padding:70px 20px;
-            }
-            #resume{
-                margin:0 10px;
-            }
-        }
-    </style>
+/*回到顶部*/
+#backTop{
+  position:fixed;right:28px;bottom:28px;
+  width:44px;height:44px;
+  border-radius:50%;
+  border:none;
+  background:linear-gradient(90deg,#ff9538,#ff6b00);
+  color:#fff;
+  font-size:17px;
+  cursor:pointer;
+  display:none;
+  z-index:98;
+}
+
+footer{
+  text-align:center;
+  padding:35px 20px;
+  border-top:1px solid #ffc488;
+  background:rgba(255,255,255,0.45);
+  color:#7a6450;
+}
+
+/*移动端适配*/
+@media(max-width:840px){
+  header{padding:15px 16px;}
+  nav{gap:10px;}
+  nav a{font-size:12.5px;}
+  .hero{grid-template-columns:1fr;padding:115px 20px 70px;}
+  section{padding:65px 18px;}
+  .two-col{grid-template-columns:1fr;}
+}
+</style>
 </head>
 <body>
-<header id="mainHeader">
-    <div class="logo">谭雪情</div>
-    <nav>
-        <a href="#home">首页</a>
-        <a href="#about">关于我</a>
-        <a href="#works">作品集</a>
-        <a href="#resume">个人简历</a>
-        <a href="#contact">联系我</a>
-    </nav>
-    <a href="#contact" class="btn‑contact‑nav">联系我</a>
+<header>
+  <div class="logo">谭雪情 · 3D模型作品集</div>
+  <nav>
+    <a href="#home">首页</a>
+    <a href="#about">关于我</a>
+    <a href="#skill">专业技能</a>
+    <a href="#portfolio">作品集</a>
+    <a href="#project">项目实践</a>
+    <a href="#edu">教育信息</a>
+    <a href="#honor">荣誉证书</a>
+    <a href="#contact">联系我</a>
+  </nav>
+  <a href="#contact" class="nav-btn">联系我</a>
 </header>
 
 <section id="home" class="hero">
-    <div class="hero‑content">
-        <div class="hero‑sub">3D GAME ARTIST｜次世代道具/场景建模</div>
-        <h1>谭雪情</h1>
-        <div class="hero‑job">求职意向：3D游戏模型师</div>
-        <div class="hero‑btns">
-            <a href="#works" class="btn‑works">浏览作品集</a>
-            <a href="#resume" class="btn‑resume">查看简历</a>
-        </div>
-        <div class="tag‑wrap">
-            <span class="tag">3ds Max</span>
-            <span class="tag">Blender</span>
-            <span class="tag">Maya</span>
-            <span class="tag">Substance Painter</span>
-            <span class="tag">PBR全流程</span>
-            <span class="tag">UV拆分</span>
-            <span class="tag">低模拓扑</span>
-            <span class="tag">贴图烘焙</span>
-            <span class="tag">UE</span>
-            <span class="tag">Unity</span>
-        </div>
+  <div class="hero-text">
+    <div class="hero-sub">WELCOME｜次世代道具&场景模型</div>
+    <h1>谭雪情</h1>
+    <div class="hero-job">求职意向：3D游戏模型师（次世代道具 / 场景）</div>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn-orange">浏览全部作品</a>
+      <a href="#about" class="btn-light">了解更多</a>
     </div>
-    <div class="scroll‑hint">▼ SCROLL DOWN 向下滚动</div>
+    <div class="tags-wrap">
+      <span class="tag">3ds Max</span>
+      <span class="tag">Blender</span>
+      <span class="tag">Maya</span>
+      <span class="tag">Substance Painter</span>
+      <span class="tag">PBR全流程</span>
+      <span class="tag">UV拆分</span>
+      <span class="tag">低模拓扑</span>
+      <span class="tag">贴图烘焙</span>
+      <span class="tag">UE引擎</span>
+      <span class="tag">Unity</span>
+    </div>
+  </div>
+  <div class="hero-img-box">
+    <div class="avatar-box">
+      <img src="your.png" alt="个人头像">
+    </div>
+  </div>
 </section>
 
 <section id="about">
-    <h2 class="section‑title">关于我</h2>
-    <p>学习能力、执行能力和行动能力强，做事细心有耐心。在校长期承接建模外包，积累大量个人作品；跟随企业老师参与商业项目，拥有真实商业交付经验。善于沟通，能够快速理解甲方修改意见，可以按时完成项目交付，对待项目认真负责。意向从事次世代道具、场景3D游戏模型岗位。</p>
+  <h2 class="section-title">关于我</h2>
+  <div class="two-col">
+    <div class="card">
+      <h3>基础个人信息</h3>
+      <p>姓名：谭雪情</p>
+      <p>出生日期：2006‑12‑22</p>
+      <p>现居地点：四川·成都</p>
+      <p>在读学历：大专</p>
+      <p>所学专业：虚拟现实技术应用</p>
+      <p>目标岗位：3D游戏模型师</p>
+    </div>
+    <div class="card">
+      <h3>自我简介</h3>
+      <p>拥有较强的学习能力与执行能力，对待模型制作细心耐心，重视模型细节与资产规范。在校系统学习游戏3D资产完整生产流程，长期承接建模外包任务，积累大量道具、场景练习作品。跟随企业老师参与真实商业建模项目，具备甲方需求沟通、接收修改意见、迭代版本、按时交付的实战经验。</p>
+      <br>
+      <p>熟练掌握次世代PBR完整工作流，可以独立完成硬表面道具、游戏场景资产制作，熟悉低模拓扑、UV排布、贴图烘焙、引擎导入调试整套工作，希望从事游戏道具、游戏场景相关建模岗位。</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>个人优势说明</h3>
+    <p>✅熟悉游戏模型布线、面数控制、UV优化等游戏行业规范</p>
+    <p>✅拥有外包和商业项目实战经验，了解真实项目交付标准</p>
+    <p>✅擅长硬表面道具制作，同时可以完成卡通类场景搭建工作</p>
+    <p>✅可以配合需求反复修改模型，执行力强，守时交付</p>
+    <p>✅掌握资产从建模到导入虚幻引擎、Unity的完整链路</p>
+  </div>
 </section>
 
-<section id="works">
-    <h2 class="section‑title">作品集</h2>
-    <div class="work‑grid">
-        <div class="work‑card">
-            <img src="work1.png" alt="道具作品">
-            <div class="work‑desc">
-                <h4>硬表面游戏道具</h4>
-                <p>3ds Max 建模，SP PBR材质烘焙</p>
-            </div>
-        </div>
-        <div class="work‑card">
-            <img src="work2.png" alt="卡通街道">
-            <div class="work‑desc">
-                <h4>卡通街道场景</h4>
-                <p>场景搭建，UE地编灯光调试</p>
-            </div>
-        </div>
-        <div class="work‑card">
-            <img src="work3.png" alt="室内场景">
-            <div class="work‑desc">
-                <h4>卡通卧室场景</h4>
-                <p>模型布线优化，UV排布</p>
-            </div>
-        </div>
-        <div class="work‑card">
-            <img src="work4.png" alt="展台">
-            <div class="work‑desc">
-                <h4>展台设计</h4>
-                <p>硬表面建模，资产导出</p>
-            </div>
-        </div>
+<section id="skill">
+  <h2 class="section-title">专业技能详情</h2>
+  <div class="card">
+    <h3>建模相关能力</h3>
+    <p>熟练使用3ds Max编辑多边形进行硬表面建模，掌握UV拆分、低模拓扑，熟悉FBX模型资产导出。Blender、Maya、C4D主要用来做模型导入、轴向校验、资产预览，不作为主体建模软件。熟悉游戏布线规则、模型面数优化，擅长硬表面资产制作。</p>
+  </div>
+  <div class="card">
+    <h3>材质贴图能力</h3>
+    <p>熟练使用Substance Painter制作PBR各类贴图，掌握次世代全流程：高模烘焙法线、AO贴图，低模拓扑重构，UV合理排布，金属、粗糙度、颜色贴图绘制。会使用Photoshop做贴图后期处理调整。</p>
+  </div>
+  <div class="card">
+    <h3>引擎实操能力</h3>
+    <p>Unreal Engine可以完成模型导入，基础材质赋予，灯光调试，简单地编场景搭建；Unity可以完成资产预览与简单场景布置。实操项目包含：UE地编，游戏道具，卡通街道，卡通卧室场景，展台设计。</p>
+  </div>
+
+  <div class="card">
+    <h3>软件熟练度</h3>
+    <div class="bar-item">
+      <div class="bar-row"><span>3ds Max</span><span>90%</span></div>
+      <div class="bar-bg"><div class="bar-fill" data-val="90"></div></div>
     </div>
+    <div class="bar-item">
+      <div class="bar-row"><span>Substance Painter</span><span>83%</span></div>
+      <div class="bar-bg"><div class="bar-fill" data-val="83"></div></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-row"><span>Unreal Engine</span><span>75%</span></div>
+      <div class="bar-bg"><div class="bar-fill" data-val="75"></div></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-row"><span>Blender</span><span>70%</span></div>
+      <div class="bar-bg"><div class="bar-fill" data-val="70"></div></div>
+    </div>
+    <div class="bar-item">
+      <div class="bar-row"><span>Photoshop</span><span>74%</span></div>
+      <div class="bar-bg"><div class="bar-fill" data-val="74"></div></div>
+    </div>
+  </div>
 </section>
 
-<section id="resume">
-    <h2 class="section‑title">个人简历</h2>
-    <div class="resume‑block">
-        <h3>教育背景</h3>
-        <p>2024.09‑2027.07｜成都职业技术学院｜虚拟现实技术应用</p>
-        <p>主修课程：游戏道具制作，数字化模型与动画，场景搭建，Blender，综合项目开发，虚拟现实综合应用，色彩与界面</p>
+<section id="portfolio">
+  <h2 class="section-title">作品集展示</h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <img src="atgrr.png" alt="硬表面道具">
+      <div class="work-desc">
+        <h4>硬表面游戏道具</h4>
+        <p>3ds Max建模，PBR材质，符合游戏资产面数标准</p>
+      </div>
     </div>
-    <div class="resume‑block">
-        <h3>职业技能</h3>
-        <p>熟练使用3ds Max编辑多边形、UV拆分、FBX资产导出；掌握Substance Painter完成PBR次世代全流程，低模拓扑、UV排布、贴图烘焙；熟悉游戏布线、面数优化，擅长硬表面；可在UE、Unity导入资产调试材质灯光。</p>
+    <div class="work-card">
+      <img src="ser.png" alt="道具练习">
+      <div class="work-desc">
+        <h4>次世代道具练习</h4>
+        <p>拓扑低模，UV拆分，SP绘制全套PBR贴图</p>
+      </div>
     </div>
-    <div class="resume‑block">
-        <h3>项目实践</h3>
-        <p>在校承接建模外包，产出多套建模作品；跟随企业老师参与商业建模项目。理解甲方修改意见，按时迭代修改模型，具备商业项目交付经验。</p>
+    <div class="work-card">
+      <img src="f.png" alt="卡通街道">
+      <div class="work-desc">
+        <h4>卡通街道场景</h4>
+        <p>多资产组合搭建，UE引擎灯光与材质调试</p>
+      </div>
     </div>
-    <div class="resume‑block">
-        <h3>荣誉证书</h3>
-        <p>四川省大学生农业创意设计大赛 三等奖</p>
+    <div class="work-card">
+      <img src="qwert.jpg" alt="室内场景">
+      <div class="work-desc">
+        <h4>卡通卧室室内场景</h4>
+        <p>全套室内资产制作，优化布线与UV布局</p>
+      </div>
     </div>
+    <div class="work-card">
+      <img src="ft.png" alt="道具资产">
+      <div class="work-desc">
+        <h4>道具资产练习</h4>
+        <p>硬表面结构练习，倒角与细节处理</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="h.jpg" alt="场景渲染">
+      <div class="work-desc">
+        <h4>场景氛围渲染</h4>
+        <p>资产整理，引擎灯光调试输出效果图</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="hj56e.png" alt="模型练习">
+      <div class="work-desc">
+        <h4>模型结构练习</h4>
+        <p>形体塑造练习，关注模型比例结构</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="iy.png" alt="材质练习">
+      <div class="work-desc">
+        <h4>PBR材质练习</h4>
+        <p>练习不同材质的质感表现与贴图层次</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="jg.jpg" alt="场景资产">
+      <div class="work-desc">
+        <h4>小型场景资产</h4>
+        <p>模块化场景资产制作练习</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="tyhte.png" alt="建模练习">
+      <div class="work-desc">
+        <h4>建模综合练习</h4>
+        <p>完整从建模到材质输出练习</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="uk.jpg" alt="展台设计">
+      <div class="work-desc">
+        <h4>展台设计资产</h4>
+        <p>硬表面展台，资产导出FBX用于引擎</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="ygr.jpg" alt="渲染作品">
+      <div class="work-desc">
+        <h4>渲染输出作品</h4>
+        <p>模型完成后引擎渲染效果图输出</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <h2 class="section-title">项目实践经历</h2>
+  <div class="timeline">
+    <div class="timeline-item card">
+      <h3>在校外包建模项目</h3>
+      <p>在校期间持续承接建模外包需求，接收客户的道具、场景制作需求。按照要求完成模型搭建，拓扑低模，拆分UV，绘制PBR贴图，输出FBX与贴图文件。能够理解修改意见，迭代多版本，保证按时交付项目文件，积累真实商业沟通经验。</p>
+    </div>
+    <div class="timeline-item card">
+      <h3>企业老师联合商业项目</h3>
+      <p>跟随企业一线老师参与商业建模项目，学习工业游戏资产标准，学习商业项目对于面数、UV布局、贴图大小、文件整理的严格要求，参与资产制作环节，熟悉团队项目的工作流程。</p>
+    </div>
+    <div class="timeline-item card">
+      <h3>课程大项目：卡通街道完整场景</h3>
+      <p>独立完成全套街道资产，制作建筑、道具物件，组装场景，导入虚幻引擎，调节材质、光照，完成完整场景效果输出，练习模块化场景制作思路。</p>
+    </div>
+    <div class="timeline-item card">
+      <h3>课程大项目：卡通室内卧室场景</h3>
+      <p>制作全套室内家具、摆件资产，统一布线规范，优化UV，引擎内部布置室内空间，完成室内渲染出图。</p>
+    </div>
+    <div class="timeline-item card">
+      <h3>展台设计建模项目</h3>
+      <p>硬表面展台结构建模，处理倒角、分割结构，整理资产，导出FBX格式，可直接导入游戏引擎使用。</p>
+    </div>
+  </div>
+</section>
+
+<section id="edu">
+  <h2 class="section-title">教育背景信息</h2>
+  <div class="card">
+    <h3>就读信息</h3>
+    <p>时间：2024.09 — 2027.07</p>
+    <p>学校：成都职业技术学院</p>
+    <p>专业：虚拟现实技术应用</p>
+  </div>
+  <div class="card">
+    <h3>主修全部课程</h3>
+    <ul>
+      <li>游戏道具制作</li>
+      <li>数字化模型与动画</li>
+      <li>场景搭建</li>
+      <li>Blender数字化模型动画</li>
+      <li>综合项目开发</li>
+      <li>虚拟现实综合应用</li>
+      <li>色彩与界面</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>在校学习收获</h3>
+    <p>系统学习三维建模理论，游戏美术资产生产标准，次世代模型完整工作流，引擎场景搭建，色彩审美，项目综合开发能力。大量课堂练习与课后自主练习，产出大量道具、场景模型作品。</p>
+  </div>
+</section>
+
+<section id="honor">
+  <h2 class="section-title">荣誉与证书</h2>
+  <div class="card">
+    <h3>竞赛获奖</h3>
+    <p>🏆四川省大学生农业创意设计大赛 三等奖</p>
+    <br>
+    <p>参与省级设计赛事，独立完成3D相关参赛作品，锻炼三维创作能力，熟悉完整作品的创作、调整、提交参赛全流程。</p>
+  </div>
+  <div class="card">
+    <h3>求职期望说明</h3>
+    <p>我可以接受全职岗位、实习岗位，也可以承接外包建模工作。擅长次世代硬表面道具，卡通类场景搭建。可以线上沟通需求，按照约定时间交付文件，积极配合修改调整。希望可以加入游戏美术团队，继续积累项目经验。</p>
+  </div>
 </section>
 
 <section id="contact">
-    <h2 class="section‑title">联系我</h2>
-    <div class="contact‑text">
-        <p>联系电话：181‑2325‑7641</p>
-        <p>现居：四川 · 成都</p>
-        <p>求职方向：3D游戏模型师（次世代道具 / 场景）</p>
+  <h2 class="section-title">联系我</h2>
+  <div class="two-col">
+    <div class="card">
+      <h3>联系方式</h3>
+      <p>联系电话：181‑2325‑7641</p>
+      <p>所在城市：四川 · 成都</p>
+      <p>求职岗位：3D游戏模型师（次世代道具 / 场景）</p>
     </div>
+    <div class="card">
+      <h3>合作说明</h3>
+      <p>可以沟通实习、全职工作；也可接外包道具、场景建模项目。</p>
+      <p>可以线上对接需求，沟通模型效果、交付周期，按需求迭代修改。</p>
+    </div>
+  </div>
 </section>
 
+<footer>
+© 2026 谭雪情 | 3D次世代游戏模型师作品集 GitHub Pages
+</footer>
+
+<div class="img-modal" id="imgModal">
+  <span class="close-modal">×</span>
+  <img src="" id="modalImg">
+</div>
+<button id="backTop">↑</button>
+
 <script>
-// 滚动导航变色
-const headerDom = document.getElementById('mainHeader');
-window.addEventListener('scroll',()=>{
-    if(window.scrollY > 80){
-        headerDom.classList.add('scrolled');
-    }else{
-        headerDom.classList.remove('scrolled');
-    }
+//图片点击放大
+const modal = document.getElementById("imgModal");
+const modalImg = document.getElementById("modalImg");
+const closeModal = document.querySelector(".close-modal");
+document.querySelectorAll(".work-card img").forEach(img=>{
+  img.onclick=()=>{
+    modal.style.display="flex";
+    modalImg.src=img.src;
+  }
+})
+closeModal.onclick=()=>modal.style.display="none";
+modal.onclick=e=>{if(e.target===modal) modal.style.display="none";}
+
+//回到顶部
+const backTopBtn = document.getElementById("backTop");
+window.addEventListener("scroll",()=>{
+  if(window.scrollY>450){
+    backTopBtn.style.display="block";
+  }else{
+    backTopBtn.style.display="none";
+  }
+})
+backTopBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+//技能条滚动动画
+const skillBars = document.querySelectorAll(".bar-fill");
+const skillSection = document.getElementById("skill");
+let skillAnimate = false;
+window.addEventListener("scroll",()=>{
+  const rect = skillSection.getBoundingClientRect();
+  if(rect.top < window.innerHeight*0.78 && !skillAnimate){
+    skillAnimate=true;
+    skillBars.forEach(bar=>{
+      const w = bar.getAttribute("data-val");
+      bar.style.transition="width 1.2s ease";
+      bar.style.width = w + "%";
+    })
+  }
 })
 </script>
 </body>
