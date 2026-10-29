@@ -1,375 +1,418 @@
 <!DOCTYPE html>
-<!-- 作品集首页 HTML 文件 | 谭雪情 3D次世代建模作品集（全量26张作品，卡片显示文件名） -->
-<!-- 使用说明：index.html 和所有图片放在同一个文件夹 -->
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>谭雪情｜3D次世代游戏模型师作品集</title>
+    <title>谭雪情 | 3D次世代游戏模型师作品集</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft YaHei", sans-serif;
         }
         html {
             scroll-behavior: smooth;
         }
         body {
-            background: linear-gradient(140deg, #fff9ed, #ffe7c9);
-            color: #523f2f;
-            line-height: 1.85;
+            font-family: "Microsoft YaHei", system-ui, sans-serif;
+            background-color: #12141a;
+            background-image: radial-gradient(circle at 15% 10%, #232733 0%, #12141a 65%);
+            color: #e2e4e9;
+            line-height: 1.75;
         }
 
+        /* 导航栏 滚动毛玻璃 */
         header {
             position: fixed;
-            width: 100%;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 999;
-            padding: 18px 40px;
+            padding: 1.2rem 4rem;
+            transition: background 0.35s ease‑in‑out, backdrop‑filter 0.35s;
+            background: rgba(18,20,26,0.15);
+            backdrop-filter: blur(0px);
+        }
+        header.scrolled {
+            background: rgba(18,20,26,0.75);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .header-wrap {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 249, 237, 0.75);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #ffd399;
         }
         .logo {
-            font-size: 21px;
-            font-weight: bold;
-            color: #ff8822;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #ffab57;
             letter-spacing: 1px;
         }
         nav {
             display: flex;
-            gap: 24px;
+            gap: 2rem;
             flex-wrap: wrap;
         }
         nav a {
+            color: #c4c8d2;
             text-decoration: none;
-            color: #77583f;
-            font-size: 14.5px;
+            font-size: 0.95rem;
+            transition: color 0.25s;
         }
         nav a:hover {
-            color: #ff8822;
+            color: #ffab57;
         }
-        .nav-btn {
-            padding: 8px 20px;
-            border-radius: 25px;
-            background: linear-gradient(90deg, #ff9944, #ff7722);
-            color: #fff;
+        .btn‑primary {
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg,#ff9536,#ffab57);
+            color:#0f1117;
+            font-weight: 500;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(255, 136, 34, 0.22);
+            transition: transform 0.2s, box‑shadow 0.25s;
+        }
+        .btn‑primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(255,165,80,0.25);
         }
 
+        /* Hero首屏 */
         .hero {
             min-height: 100vh;
-            padding: 130px 50px 90px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            gap: 40px;
+            gap: 3rem;
+            padding: 8rem 4rem 4rem;
         }
-        .hero-text h1 {
-            font-size: 54px;
-            color: #4e3c2d;
-            margin-bottom: 8px;
+        .hero‑text .tagline {
+            color:#ffab57;
+            font-size:1rem;
+            letter‑spacing:2px;
+            margin-bottom:0.75rem;
         }
-        .hero-sub {
-            color: #ff8822;
-            font-size: 15px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+        .hero‑text h1 {
+            font-size:3.5rem;
+            font-weight:700;
+            margin-bottom:0.75rem;
+            color:#ffffff;
         }
-        .hero-job {
-            font-size: 18px;
-            color: #705b47;
-            margin-bottom: 30px;
+        .hero‑text .job‑title {
+            font-size:1.25rem;
+            color:#b0b5c2;
+            margin-bottom:2rem;
         }
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 35px;
+        .hero‑btns {
+            display:flex;
+            gap:1rem;
+            margin-bottom:2.5rem;
         }
-        .btn-orange {
-            padding: 12px 28px;
-            border-radius: 30px;
-            background: linear-gradient(90deg, #ff9944, #ff7722);
-            color: #fff;
-            text-decoration: none;
+        .btn‑outline {
+            padding:0.55rem 1.4rem;
+            border-radius:999px;
+            border:1px solid rgba(255,171,87,0.5);
+            color:#ffab57;
+            text-decoration:none;
+            transition: all 0.25s;
         }
-        .btn-light {
-            padding: 12px 28px;
-            border-radius: 30px;
-            background: #ffffff;
-            color: #ff8822;
-            border: 1px solid #ffcd9c;
-            text-decoration: none;
+        .btn‑outline:hover {
+            background:rgba(255,171,87,0.12);
         }
-        .tags-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
+        .tag‑list {
+            display:flex;
+            flex-wrap:wrap;
+            gap:0.6rem;
         }
-        .tag {
-            padding: 6px 15px;
-            border-radius: 22px;
-            background: rgba(255, 255, 255, 0.7);
-            color: #ff8822;
-            border: 1px solid #ffcd9c;
-            font-size: 13px;
+        .tag‑item {
+            padding:0.35rem 0.85rem;
+            border-radius:6px;
+            background:rgba(255,255,255,0.07);
+            font-size:0.85rem;
+            color:#d1d5dd;
         }
-        .hero-img-box {
-            display: flex;
-            justify-content: center;
+        .avatar‑wrap {
+            display:flex;
+            justify-content:center;
         }
-        .avatar-box {
-            width: 330px;
-            height: 410px;
-            border-radius: 22px;
-            background: linear-gradient(150deg, #ffbb66, #ff7722);
-            padding: 13px;
+        .avatar‑box {
+            width:320px;
+            height:400px;
+            border-radius:20px;
+            padding:10px;
+            background: linear-gradient(135deg,#ff9536,#ffab57);
+            box-shadow:0 12px 40px rgba(255,165,80,0.18);
         }
-        .avatar-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 16px;
-            border: 3px solid #fff;
+        .avatar‑box img {
+            width:100%;
+            height:100%;
+            object‑fit:cover;
+            border‑radius:14px;
         }
 
+        /* 通用区块 */
         section {
-            padding: 85px 55px;
+            padding:5rem 4rem;
         }
-        .section-title {
-            font-size: 31px;
-            border-left: 5px solid #ff8822;
-            padding-left: 14px;
-            margin-bottom: 32px;
-            color: #4e3c2d;
+        .section‑head {
+            margin‑bottom:2.8rem;
+        }
+        .section‑title {
+            font‑size:2.2rem;
+            color:#fff;
+            margin‑bottom:0.5rem;
+        }
+        .section‑desc {
+            color:#9ca3b2;
+            max‑width:700px;
+        }
+        .two‑col {
+            display:grid;
+            grid‑template‑columns:1fr 1fr;
+            gap:2rem;
         }
         .card {
-            background: rgba(255, 255, 255, 0.64);
-            border-radius: 20px;
-            padding: 30px;
-            border: 1px solid #ffd399;
-            margin-bottom: 24px;
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.08);
+            border‑radius:16px;
+            padding:2rem;
+            transition: transform 0.25s, box‑shadow 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box‑shadow:0 10px 30px rgba(0,0,0,0.35);
+            border‑color:rgba(255,171,87,0.2);
         }
         .card h3 {
-            color: #ff8822;
-            margin-bottom: 13px;
-            font-size: 20px;
-        }
-        .two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 26px;
+            color:#ffab57;
+            margin‑bottom:1rem;
+            font‑size:1.3rem;
         }
 
-        .bar-item {
-            margin-bottom: 20px;
+        /* 技能进度 */
+        .skill‑item {
+            margin‑bottom:1.4rem;
         }
-        .bar-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 6px;
+        .skill‑top {
+            display:flex;
+            justify‑content:space‑between;
+            margin‑bottom:0.4rem;
         }
-        .bar-bg {
-            height: 12px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 8px;
-            overflow: hidden;
+        .skill‑bg {
+            width:100%;
+            height:8px;
+            background:rgba(255,255,255,0.08);
+            border‑radius:4px;
+            overflow:hidden;
         }
-        .bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ff9944, #ff7722);
-            width: 0;
-            transition: 1.3s;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 26px;
-        }
-        .work-card {
-            background: #fff;
-            border-radius: 18px;
-            overflow: hidden;
-            border: 1px solid #ffcd9c;
-            transition: 0.28s;
-        }
-        .work-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 26px rgba(255, 136, 34, 0.12);
-        }
-        .work-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            cursor: pointer;
-            display: block;
-            background: #f5f5f5;
-        }
-        .work-desc {
-            padding: 18px;
-        }
-        .work-desc h4 {
-            margin-bottom: 7px;
-            color: #4e3c2d;
-        }
-        .work-desc p {
-            font-size: 14px;
-            color: #75604c;
-        }
-        .file-name-text{
-            margin-top:8px;
-            font-size:12px;
-            color:#999;
-            font-family:Consolas, monospace;
+        .skill‑fill {
+            height:100%;
+            background:linear‑gradient(90deg,#ff9536,#ffab57);
+            width:0%;
+            transition:width 1.4s cubic‑bezier(0.22, 1, 0.36, 1);
         }
 
-        .timeline {
-            border-left: 3px solid #ffbc77;
-            padding-left: 28px;
+        /* 作品网格 */
+        .work‑grid {
+            display:grid;
+            grid‑template‑columns:repeat(auto‑fill,minmax(300px,1fr));
+            gap:2rem;
         }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 34px;
+        .work‑card {
+            background:rgba(255,255,255,0.04);
+            border:1px solid rgba(255,255,255,0.08);
+            border‑radius:16px;
+            overflow:hidden;
+            transition: transform 0.3s ease, box‑shadow 0.3s;
         }
-        .timeline-item::before {
-            content: "";
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: #ff8822;
-            position: absolute;
-            left: -34px;
-            top: 5px;
-            box-shadow: 0 0 0 4px #ffe2c4;
+        .work‑card:hover {
+            transform: translateY(-6px) scale(1.015);
+            box‑shadow:0 14px 45px rgba(0,0,0,0.45);
+            border‑color:rgba(255,171,87,0.22);
+        }
+        .work‑img {
+            width:100%;
+            height:210px;
+            object‑fit:cover;
+            cursor:pointer;
+            display:block;
+            background:#1e212b;
+        }
+        .work‑info {
+            padding:1.3rem;
+        }
+        .work‑info h4 {
+            color:#ffffff;
+            margin‑bottom:0.4rem;
+            font‑size:1.05rem;
+        }
+        .work‑info p {
+            color:#a2a8b8;
+            font‑size:0.9rem;
+        }
+        .file‑label {
+            margin‑top:0.6rem;
+            font‑size:0.78rem;
+            color:#787e8f;
+            font‑family:Consolas,monospace;
         }
 
-        .img-modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 1000;
-            display: none;
-            align-items: center;
-            justify-content: center;
+        /* 时间线 */
+        .timeline‑wrap {
+            border‑left:2px solid rgba(255,171,87,0.25);
+            padding‑left:1.8rem;
         }
-        .img-modal img {
-            max-width: 90%;
-            max-height: 90vh;
-            border-radius: 10px;
+        .timeline‑item {
+            position:relative;
+            margin‑bottom:2rem;
         }
-        .close-modal {
-            position: absolute;
-            top: 25px;
-            right: 35px;
-            color: #fff;
-            font-size: 34px;
-            cursor: pointer;
+        .timeline‑item::before {
+            content:"";
+            width:12px;
+            height:12px;
+            border‑radius:50%;
+            background:#ffab57;
+            position:absolute;
+            left:‑2.45rem;
+            top:0.3rem;
+            box‑shadow:0 0 0 4px rgba(255,171,87,0.15);
         }
 
-        #backTop {
-            position: fixed;
-            right: 28px;
-            bottom: 28px;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: none;
-            background: linear-gradient(90deg, #ff9944, #ff7722);
-            color: #fff;
-            font-size: 17px;
-            cursor: pointer;
-            display: none;
-            z-index: 98;
+        /* 大图弹窗 */
+        .modal‑overlay {
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.88);
+            z‑index:1001;
+            display:none;
+            align‑items:center;
+            justify‑content:center;
+            padding:2rem;
+        }
+        .modal‑overlay img {
+            max‑width:92%;
+            max‑height:92vh;
+            border‑radius:10px;
+        }
+        .modal‑close {
+            position:absolute;
+            top:1.5rem;
+            right:2rem;
+            color:#fff;
+            font‑size:2.4rem;
+            cursor:pointer;
+            user‑select:none;
+        }
+
+        /* 返回顶部 */
+        #back‑top {
+            position:fixed;
+            bottom:2rem;
+            right:2rem;
+            width:46px;
+            height:46px;
+            border‑radius:50%;
+            border:none;
+            background:linear‑gradient(135deg,#ff9536,#ffab57);
+            color:#0f1117;
+            font‑size:1.1rem;
+            cursor:pointer;
+            display:none;
+            z‑index:998;
+            transition:transform 0.2s;
+        }
+        #back‑top:hover {
+            transform: translateY(-3px);
         }
 
         footer {
-            text-align: center;
-            padding: 35px 20px;
-            border-top: 1px solid #ffd399;
-            background: rgba(255, 249, 237, 0.45);
-            color: #7a6450;
+            padding:3rem 2rem;
+            text‑align:center;
+            border‑top:1px solid rgba(255,255,255,0.07);
+            color:#828899;
+            font‑size:0.9rem;
         }
 
-        @media (max-width: 840px) {
+        /* 移动端适配 */
+        @media (max‑width:900px) {
             header {
-                padding: 15px 16px;
-            }
-            nav {
-                gap: 10px;
-            }
-            nav a {
-                font-size: 12.5px;
+                padding:1rem 1.2rem;
             }
             .hero {
-                grid-template-columns: 1fr;
-                padding: 115px 20px 70px;
+                grid‑template‑columns:1fr;
+                padding:7rem 1.2rem 3rem;
+            }
+            .hero‑text h1 {
+                font‑size:2.4rem;
             }
             section {
-                padding: 65px 18px;
+                padding:3.5rem 1.2rem;
             }
-            .two-col {
-                grid-template-columns: 1fr;
+            .two‑col {
+                grid‑template‑columns:1fr;
+            }
+            nav {
+                gap:1rem;
+            }
+            .avatar‑box {
+                width:260px;
+                height:330px;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">谭雪情 · 3D模型作品集</div>
-        <nav>
-            <a href="#home">首页</a>
-            <a href="#about">关于我</a>
-            <a href="#skill">专业技能</a>
-            <a href="#portfolio">作品集</a>
-            <a href="#project">项目实践</a>
-            <a href="#edu">教育信息</a>
-            <a href="#honor">荣誉证书</a>
-            <a href="#contact">联系我</a>
-        </nav>
-        <a href="#contact" class="nav-btn">联系我</a>
+    <header id="main‑header">
+        <div class="header‑wrap">
+            <div class="logo">谭雪情 · 3D作品集</div>
+            <nav>
+                <a href="#home">首页</a>
+                <a href="#about">关于我</a>
+                <a href="#skill">专业技能</a>
+                <a href="#portfolio">作品集</a>
+                <a href="#project">项目实践</a>
+                <a href="#edu">教育背景</a>
+                <a href="#honor">荣誉证书</a>
+                <a href="#contact" class="btn‑primary">联系我</a>
+            </nav>
+        </div>
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-text">
-            <div class="hero-sub">WELCOME｜次世代道具&场景模型</div>
+        <div class="hero‑text">
+            <div class="tagline">WELCOME | 次世代道具 & 场景建模</div>
             <h1>谭雪情</h1>
-            <div class="hero-job">求职意向：3D游戏模型师（次世代道具 / 场景）</div>
-            <div class="hero-buttons">
-                <a href="#portfolio" class="btn-orange">浏览全部作品</a>
-                <a href="#about" class="btn-light">了解更多</a>
+            <div class="job‑title">求职意向：3D游戏模型师（次世代道具 / 场景）</div>
+            <div class="hero‑btns">
+                <a href="#portfolio" class="btn‑primary">浏览作品</a>
+                <a href="#about" class="btn‑outline">了解更多</a>
             </div>
-            <div class="tags-wrap">
-                <span class="tag">3ds Max</span>
-                <span class="tag">Blender</span>
-                <span class="tag">Maya</span>
-                <span class="tag">Substance Painter</span>
-                <span class="tag">PBR全流程</span>
-                <span class="tag">UV拆分</span>
-                <span class="tag">低模拓扑</span>
-                <span class="tag">贴图烘焙</span>
-                <span class="tag">UE引擎</span>
-                <span class="tag">Unity</span>
+            <div class="tag‑list">
+                <span class="tag‑item">3ds Max</span>
+                <span class="tag‑item">Blender</span>
+                <span class="tag‑item">Maya</span>
+                <span class="tag‑item">Substance Painter</span>
+                <span class="tag‑item">PBR全流程</span>
+                <span class="tag‑item">UV拆分</span>
+                <span class="tag‑item">低模拓扑</span>
+                <span class="tag‑item">贴图烘焙</span>
+                <span class="tag‑item">UE / Unity</span>
             </div>
         </div>
-        <div class="hero-img-box">
-            <div class="avatar-box">
+        <div class="avatar‑wrap">
+            <div class="avatar‑box">
                 <img src="touxiang.png" alt="个人头像">
             </div>
         </div>
     </section>
 
     <section id="about">
-        <h2 class="section-title">关于我</h2>
-        <div class="two-col">
+        <div class="section‑head">
+            <h2 class="section‑title">关于我</h2>
+        </div>
+        <div class="two‑col">
             <div class="card">
-                <h3>基础个人信息</h3>
+                <h3>基础信息</h3>
                 <p>姓名：谭雪情</p>
                 <p>生日：2006.12.22</p>
                 <p>现居：四川 · 成都</p>
@@ -380,257 +423,131 @@
             <div class="card">
                 <h3>自我评价</h3>
                 <p>本人学习能力强，做事细心有耐心，熟练 PBR 次世代资产全流程制作。</p>
+                <br>
                 <p>在校长期承接建模外包，具备商业交付经验，可独立完成模型、贴图制作。熟练使用 3ds Max、Blender、SP 等软件，了解 UE、Unity 基础操作，能按需求调整修改模型，执行力强，对待项目认真负责。</p>
             </div>
         </div>
     </section>
 
     <section id="skill">
-        <h2 class="section-title">职业技能</h2>
-        <div class="card">
-            <h3>建模资产能力</h3>
-            <p>熟练 PBR 次世代全流程制作，掌握高模雕刻、低模拓扑、UV 排布、贴图烘焙；熟悉游戏模型布线规范、面数优化，擅长硬表面、低多边形场景 / 道具建模。</p>
+        <div class="section‑head">
+            <h2 class="section‑title">职业技能</h2>
         </div>
-        <div class="card">
-            <h3>软件实操能力</h3>
-            <p>熟练使用 3ds Max、Blender、Maya、Substance Painter、Photoshop；Unreal Engine、Unity 基础操作，可完成模型导入、基础材质灯光调试。</p>
-        </div>
-        <div class="card">
-            <h3>资产管线能力</h3>
-            <p>掌握 FBX 跨软件互导，模型法线修复、资产整理；PS 可完成渲染图片后期调色。</p>
-        </div>
-        <div class="card">
-            <h3>综合素养</h3>
-            <p>具备需求沟通能力，理解甲方修改意见，执行力强；熟练使用 Office 办公套件，可整理项目文档。</p>
+        <div class="two‑col">
+            <div class="card">
+                <h3>建模资产能力</h3>
+                <p>熟练 PBR 次世代全流程制作，掌握高模雕刻、低模拓扑、UV 排布、贴图烘焙；熟悉游戏模型布线规范、面数优化，擅长硬表面、低多边形场景 / 道具建模。</p>
+            </div>
+            <div class="card">
+                <h3>软件实操能力</h3>
+                <p>熟练使用 3ds Max、Blender、Maya、Substance Painter、Photoshop；Unreal Engine、Unity 基础操作，可完成模型导入、基础材质灯光调试。</p>
+            </div>
+            <div class="card">
+                <h3>资产管线能力</h3>
+                <p>掌握 FBX 跨软件互导，模型法线修复、资产整理；PS 可完成渲染图片后期调色。</p>
+            </div>
+            <div class="card">
+                <h3>综合素养</h3>
+                <p>具备需求沟通能力，理解甲方修改意见，执行力强；熟练使用 Office 办公套件，可整理项目文档。</p>
+            </div>
         </div>
     </section>
 
     <section id="portfolio">
-        <h2 class="section-title">作品集展示（共26组作品）</h2>
-        <div class="work-grid">
-            <div class="work-card">
-                <img class="work-img" src="1v1.jpg" alt="卡通木椅">
-                <div class="work-desc">
-                    <h4>卡通木椅</h4>
-                    <p>简约卡通家具道具</p>
-                    <div class="file-name-text">文件名：1v1.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="dwe.png" alt="室内样板场景">
-                <div class="work-desc">
-                    <h4>室内样板场景</h4>
-                    <p>室内组合场景，多家具资产搭配</p>
-                    <div class="file-name-text">文件名：dwe.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="er.png" alt="次世代长剑">
-                <div class="work-desc">
+        <div class="section‑head">
+            <h2 class="section‑title">作品集展示 · 精选作品</h2>
+            <p class="section‑desc">以下为个人独立完成的3D建模渲染作品，点击图片可放大预览</p>
+        </div>
+        <div class="work‑grid">
+            <div class="work‑card">
+                <img class="work‑img" src="er.png" alt="次世代长剑">
+                <div class="work‑info">
                     <h4>次世代长剑</h4>
                     <p>硬表面冷兵器，高模雕刻+PBR金属材质</p>
-                    <div class="file-name-text">文件名：er.png</div>
+                    <div class="file‑label">文件名：er.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="f.png" alt="卡通沿街小店">
-                <div class="work-desc">
-                    <h4>卡通沿街小店</h4>
-                    <p>模块化卡通建筑资产</p>
-                    <div class="file-name-text">文件名：f.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="fg.png" alt="Q版卡通越野车">
-                <div class="work-desc">
+            <div class="work‑card">
+                <img class="work‑img" src="fg.png" alt="Q版卡通越野车">
+                <div class="work‑info">
                     <h4>Q版卡通越野车</h4>
                     <p>卡通载具建模，倒角与卡线练习</p>
-                    <div class="file-name-text">文件名：fg.png</div>
+                    <div class="file‑label">文件名：fg.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="fre.png" alt="科技储物箱">
-                <div class="work-desc">
+            <div class="work‑card">
+                <img class="work‑img" src="fre.png" alt="科技储物箱">
+                <div class="work‑info">
                     <h4>科技储物箱</h4>
                     <p>硬表面箱体，磨损锈蚀PBR贴图练习</p>
-                    <div class="file-name-text">文件名：fre.png</div>
+                    <div class="file‑label">文件名：fre.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="g.png" alt="小木屋建筑">
-                <div class="work-desc">
-                    <h4>小木屋建筑</h4>
-                    <p>卡通风格单体建筑资产</p>
-                    <div class="file-name-text">文件名：g.png</div>
+            <div class="work‑card">
+                <img class="work‑img" src="f.png" alt="卡通沿街小店">
+                <div class="work‑info">
+                    <h4>卡通沿街小店</h4>
+                    <p>模块化卡通建筑资产</p>
+                    <div class="file‑label">文件名：f.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="hjy56e.png" alt="卡通摆件套装">
-                <div class="work-desc">
-                    <h4>卡通摆件套装</h4>
-                    <p>Q版可爱小道具组合</p>
-                    <div class="file-name-text">文件名：hjy56e.png</div>
+            <div class="work‑card">
+                <img class="work‑img" src="dwe.png" alt="室内样板场景">
+                <div class="work‑info">
+                    <h4>室内样板场景</h4>
+                    <p>室内组合场景，多家具资产搭配</p>
+                    <div class="file‑label">文件名：dwe.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="hytgtr.png" alt="盾牌道具">
-                <div class="work-desc">
-                    <h4>复古盾牌</h4>
-                    <p>奇幻风格硬表面盾牌</p>
-                    <div class="file-name-text">文件名：hytgtr.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="jg.png" alt="工程车辆场景">
-                <div class="work-desc">
-                    <h4>工程车辆场景</h4>
-                    <p>载具+环境组合渲染</p>
-                    <div class="file-name-text">文件名：jg.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="k.png" alt="小岛场景">
-                <div class="work-desc">
-                    <h4>童话小岛场景</h4>
-                    <p>低模自然环境搭建</p>
-                    <div class="file-name-text">文件名：k.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="qwrt.jpg" alt="童话小城堡">
-                <div class="work-desc">
-                    <h4>童话小城堡</h4>
-                    <p>童话风建筑场景，氛围渲染</p>
-                    <div class="file-name-text">文件名：qwrt.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="rf.png" alt="尖顶塔楼">
-                <div class="work-desc">
-                    <h4>尖顶塔楼建筑</h4>
-                    <p>欧式奇幻塔楼资产</p>
-                    <div class="file-name-text">文件名：rf.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="rfeee.png" alt="手枪道具">
-                <div class="work-desc">
-                    <h4>手枪道具</h4>
-                    <p>枪械硬表面模型，结构布线练习</p>
-                    <div class="file-name-text">文件名：rfeee.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="rge.png" alt="欧式城堡">
-                <div class="work-desc">
-                    <h4>欧式城堡</h4>
-                    <p>奇幻城堡场景渲染</p>
-                    <div class="file-name-text">文件名：rge.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="s.png" alt="卡通卧室场景">
-                <div class="work-desc">
+            <div class="work‑card">
+                <img class="work‑img" src="s.png" alt="卡通卧室场景">
+                <div class="work‑info">
                     <h4>卡通卧室场景</h4>
                     <p>温馨室内场景搭建、灯光渲染</p>
-                    <div class="file-name-text">文件名：s.png</div>
+                    <div class="file‑label">文件名：s.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="sg.jpg" alt="卡通沿街小店">
-                <div class="work-desc">
-                    <h4>彩色小店</h4>
-                    <p>卡通风格商铺建筑</p>
-                    <div class="file-name-text">文件名：sg.jpg</div>
+            <div class="work‑card">
+                <img class="work‑img" src="rfeee.png" alt="手枪道具">
+                <div class="work‑info">
+                    <h4>手枪道具</h4>
+                    <p>枪械硬表面模型，结构布线练习</p>
+                    <div class="file‑label">文件名：rfeee.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="t.png" alt="餐桌静物">
-                <div class="work-desc">
-                    <h4>餐桌静物道具</h4>
-                    <p>酒瓶餐盘等生活道具组合</p>
-                    <div class="file-name-text">文件名：t.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="tgtfre.jpg" alt="小屋场景">
-                <div class="work-desc">
-                    <h4>林间小屋</h4>
-                    <p>卡通小屋环境渲染</p>
-                    <div class="file-name-text">文件名：tgtfre.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="tt.jpg" alt="街道场景工程">
-                <div class="work-desc">
-                    <h4>街道场景工程截图</h4>
-                    <p>软件内视图，展示布线与场景</p>
-                    <div class="file-name-text">文件名：tt.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="tyhrte.png" alt="符文环形武器">
-                <div class="work-desc">
+            <div class="work‑card">
+                <img class="work‑img" src="tyhrte.png" alt="符文环形武器">
+                <div class="work‑info">
                     <h4>符文环形武器</h4>
                     <p>奇幻风格配饰，曲面雕花细节</p>
-                    <div class="file-name-text">文件名：tyhrte.png</div>
+                    <div class="file‑label">文件名：tyhrte.png</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="u.jpg" alt="房间场景">
-                <div class="work-desc">
-                    <h4>简约房间场景</h4>
-                    <p>室内空间布局练习</p>
-                    <div class="file-name-text">文件名：u.jpg</div>
+            <div class="work‑card">
+                <img class="work‑img" src="qwrt.jpg" alt="童话小城堡">
+                <div class="work‑info">
+                    <h4>童话小城堡</h4>
+                    <p>童话风建筑场景，氛围渲染</p>
+                    <div class="file‑label">文件名：qwrt.jpg</div>
                 </div>
             </div>
-            <div class="work-card">
-                <img class="work-img" src="uk.jpg" alt="风车小镇">
-                <div class="work-desc">
-                    <h4>风车小镇场景</h4>
-                    <p>低模卡通小镇环境</p>
-                    <div class="file-name-text">文件名：uk.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="ygr.jpg" alt="地块场景">
-                <div class="work-desc">
-                    <h4>地块沙盘场景</h4>
-                    <p>模块化地块组合练习</p>
-                    <div class="file-name-text">文件名：ygr.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="yhgtr.png" alt="卡通角色">
-                <div class="work-desc">
-                    <h4>卡通Q版角色</h4>
-                    <p>Q版角色建模渲染</p>
-                    <div class="file-name-text">文件名：yhgtr.png</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="yy.jpg" alt="匕首道具">
-                <div class="work-desc">
+            <div class="work‑card">
+                <img class="work‑img" src="yy.jpg" alt="匕首道具">
+                <div class="work‑info">
                     <h4>匕首道具</h4>
                     <p>冷兵器硬表面模型</p>
-                    <div class="file-name-text">文件名：yy.jpg</div>
-                </div>
-            </div>
-            <div class="work-card">
-                <img class="work-img" src="yyt.png" alt="金色短剑">
-                <div class="work-desc">
-                    <h4>金色短剑</h4>
-                    <p>奇幻风格PBR武器</p>
-                    <div class="file-name-text">文件名：yyt.png</div>
+                    <div class="file‑label">文件名：yy.jpg</div>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="project">
-        <h2 class="section-title">项目实践经历</h2>
-        <div class="timeline">
-            <div class="timeline-item">
+        <div class="section‑head">
+            <h2 class="section‑title">项目实践经历</h2>
+        </div>
+        <div class="timeline‑wrap">
+            <div class="timeline‑item">
                 <div class="card">
                     <h3>在校外包建模项目</h3>
                     <p>在校期间长期承接建模外包，接收客户道具、场景制作需求。完成模型搭建、拓扑低模、拆分UV、绘制PBR贴图，输出FBX与贴图文件。理解修改意见，迭代多版本，按时交付，积累商业项目沟通经验。</p>
@@ -640,7 +557,9 @@
     </section>
 
     <section id="edu">
-        <h2 class="section-title">教育背景</h2>
+        <div class="section‑head">
+            <h2 class="section‑title">教育背景</h2>
+        </div>
         <div class="card">
             <h3>成都职业技术学院</h3>
             <p>时间：2024.09‑2027.07</p>
@@ -652,7 +571,9 @@
     </section>
 
     <section id="honor">
-        <h2 class="section-title">荣誉证书</h2>
+        <div class="section‑head">
+            <h2 class="section‑title">荣誉证书</h2>
+        </div>
         <div class="card">
             <h3>竞赛获奖</h3>
             <p>四川省大学生农业创意设计大赛</p>
@@ -660,8 +581,10 @@
     </section>
 
     <section id="contact">
-        <h2 class="section-title">联系我</h2>
-        <div class="two-col">
+        <div class="section‑head">
+            <h2 class="section‑title">联系我</h2>
+        </div>
+        <div class="two‑col">
             <div class="card">
                 <h3>联系方式</h3>
                 <p>联系电话：181‑2325‑7641</p>
@@ -680,54 +603,52 @@
         <p>© 2026 谭雪情 3D作品集 | 全部资产本人独立制作</p>
     </footer>
 
-    <div class="img-modal" id="modal">
-        <span class="close-modal">&times;</span>
-        <img id="modalImg" src="" alt="大图预览">
+    <!-- 图片放大弹窗 -->
+    <div class="modal‑overlay" id="imgModal">
+        <span class="modal‑close">&times;</span>
+        <img id="modalShow" src="" alt="大图预览">
     </div>
-    <button id="backTop">↑</button>
+
+    <button id="back‑top">↑</button>
 
     <script>
-        const modal = document.getElementById("modal");
-        const modalImg = document.getElementById("modalImg");
-        const imgs = document.querySelectorAll(".work-img");
-        const closeBtn = document.querySelector(".close-modal");
-
-        imgs.forEach(img => {
-            img.onclick = () => {
-                if (img.src) {
-                    modal.style.display = "flex";
-                    modalImg.src = img.src;
-                }
-            }
-        });
-        closeBtn.onclick = () => modal.style.display = "none";
-        modal.onclick = (e) => {
-            if (e.target === modal) modal.style.display = "none";
-        }
-
-        const backTop = document.getElementById("backTop");
-        window.onscroll = () => {
-            if (window.scrollY > 400) {
-                backTop.style.display = "block";
-            } else {
-                backTop.style.display = "none";
-            }
-        }
-        backTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
-        const bars = document.querySelectorAll(".bar-fill");
-        const skillSection = document.getElementById("skill");
-        let barAnimate = false;
-        window.addEventListener("scroll", () => {
-            const rect = skillSection.getBoundingClientRect();
-            if (rect.top < window.innerHeight * 0.75 && !barAnimate) {
-                barAnimate = true;
-                bars.forEach(bar => {
-                    const val = bar.dataset.val;
-                    bar.style.width = val + "%";
-                })
+        //导航滚动毛玻璃
+        const headerDom = document.getElementById("main‑header");
+        window.addEventListener("scroll", ()=>{
+            if(window.scrollY > 80){
+                headerDom.classList.add("scrolled");
+            }else{
+                headerDom.classList.remove("scrolled");
             }
         })
+
+        //图片弹窗
+        const modalOverlay = document.getElementById("imgModal");
+        const modalShow = document.getElementById("modalShow");
+        const modalClose = document.querySelector(".modal‑close");
+        const workImgs = document.querySelectorAll(".work‑img");
+
+        workImgs.forEach(img=>{
+            img.onclick = ()=>{
+                modalShow.src = img.src;
+                modalOverlay.style.display = "flex";
+            }
+        })
+        modalClose.onclick = ()=> modalOverlay.style.display = "none";
+        modalOverlay.onclick = (e)=>{
+            if(e.target === modalOverlay) modalOverlay.style.display = "none";
+        }
+
+        //返回顶部
+        const backTopBtn = document.getElementById("back‑top");
+        window.addEventListener("scroll",()=>{
+            if(window.scrollY>450){
+                backTopBtn.style.display = "block";
+            }else{
+                backTopBtn.style.display = "none";
+            }
+        })
+        backTopBtn.onclick = ()=> window.scrollTo({top:0,behavior:"smooth"});
     </script>
 </body>
 </html>
