@@ -40,14 +40,14 @@ nav a:hover{color:#ff7800;}
 .hero{
   min-height:100vh;
   padding:130px 50px 90px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
+  display:flex;
+  justify-content:center;
+  text-align:center;
 }
 .hero-text h1{font-size:54px;color:#4e3c2d;margin-bottom:8px;}
 .hero-sub{color:#ff7800;font-size:15px;letter-spacing:2px;margin-bottom:12px;}
 .hero-job{font-size:18px;color:#705b47;margin-bottom:30px;}
-.hero-buttons{display:flex;gap:15px;margin-bottom:35px;}
+.hero-buttons{display:flex;gap:15px;margin-bottom:35px;justify-content:center;}
 .btn-orange{
   padding:12px 28px;
   border-radius:30px;
@@ -63,7 +63,7 @@ nav a:hover{color:#ff7800;}
   border:1px solid #ffcd9c;
   text-decoration:none;
 }
-.tags-wrap{display:flex;flex-wrap:wrap;gap:9px;}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;}
 .tag{
   padding:6px 15px;
   border-radius:22px;
@@ -72,14 +72,6 @@ nav a:hover{color:#ff7800;}
   border:1px solid #ffcd9c;
   font-size:13px;
 }
-.hero-img-box{display:flex;justify-content:center;}
-.avatar-box{
-  width:330px;height:410px;
-  border-radius:22px;
-  background:linear-gradient(150deg,#ffb266,#ff7800);
-  padding:13px;
-}
-.avatar-box img{width:100%;height:100%;object-fit:cover;border-radius:16px;border:3px solid #fff;}
 section{padding:85px 55px;}
 .section-title{
   font-size:31px;
@@ -101,23 +93,6 @@ section{padding:85px 55px;}
 .bar-row{display:flex;justify-content:space-between;margin-bottom:6px;}
 .bar-bg{height:12px;background:rgba(255,255,255,0.6);border-radius:8px;overflow:hidden;}
 .bar-fill{height:100%;background:linear-gradient(90deg,#ff9538,#ff6b00);width:0;transition:1.3s;}
-.work-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:26px;
-}
-.work-card{
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #ffcd9c;
-  transition:0.28s;
-}
-.work-card:hover{transform:translateY(-8px);box-shadow:0 12px 26px #ff880022;}
-.work-card img{width:100%;aspect-ratio:4/3;object-fit:cover;cursor:pointer;}
-.work-desc{padding:18px;}
-.work-desc h4{margin-bottom:7px;color:#4e3c2d;}
-.work-desc p{font-size:14px;color:#75604c;}
 .timeline{border-left:3px solid #ffbc77;padding-left:28px;}
 .timeline-item{position:relative;margin-bottom:34px;}
 .timeline-item::before{
@@ -129,15 +104,6 @@ section{padding:85px 55px;}
   left:-34px;top:5px;
   box-shadow:0 0 0 4px #ffe2c4;
 }
-.img-modal{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.85);
-  z-index:1000;
-  display:none;
-  align-items:center;justify-content:center;
-}
-.img-modal img{max-width:90%;max-height:90vh;border-radius:10px;}
-.close-modal{position:absolute;top:25px;right:35px;color:#fff;font-size:34px;cursor:pointer;}
 #backTop{
   position:fixed;right:28px;bottom:28px;
   width:44px;height:44px;
@@ -161,7 +127,7 @@ footer{
   header{padding:15px 16px;}
   nav{gap:10px;}
   nav a{font-size:12.5px;}
-  .hero{grid-template-columns:1fr;padding:115px 20px 70px;}
+  .hero{padding:115px 20px 70px;}
   section{padding:65px 18px;}
   .two-col{grid-template-columns:1fr;}
 }
@@ -205,11 +171,6 @@ footer{
       <span class="tag">Unity</span>
     </div>
   </div>
-  <div class="hero-img-box">
-    <div class="avatar-box">
-      <img src="touxiang.png" alt="个人头像">
-    </div>
-  </div>
 </section>
 
 <section id="about">
@@ -234,11 +195,11 @@ footer{
 
   <div class="card">
     <h3>个人优势说明</h3>
-    <p>熟悉游戏模型布线、面数控制、UV优化等游戏行业规范</p>
-    <p>拥有外包和商业项目实战经验，了解真实项目交付标准</p>
-    <p>擅长硬表面道具制作，同时可以完成卡通类场景搭建工作</p>
-    <p>可以配合需求反复修改模型，执行力强，守时交付</p>
-    <p>掌握资产从建模到导入虚幻引擎、Unity的完整链路</p>
+    <p>✅熟悉游戏模型布线、面数控制、UV优化等游戏行业规范</p>
+    <p>✅拥有外包和商业项目实战经验，了解真实项目交付标准</p>
+    <p>✅擅长硬表面道具制作，同时可以完成卡通类场景搭建工作</p>
+    <p>✅可以配合需求反复修改模型，执行力强，守时交付</p>
+    <p>✅掌握资产从建模到导入虚幻引擎、Unity的完整链路</p>
   </div>
 </section>
 
@@ -284,91 +245,11 @@ footer{
 
 <section id="portfolio">
   <h2 class="section-title">作品集展示</h2>
-  <div class="work-grid">
-    <div class="work-card">
-      <img src="atgrr.png" alt="硬表面游戏道具">
-      <div class="work-desc">
-        <h4>硬表面游戏道具</h4>
-        <p>3ds Max建模，PBR材质，符合游戏资产面数标准</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="ser.png" alt="次世代道具练习">
-      <div class="work-desc">
-        <h4>次世代道具练习</h4>
-        <p>拓扑低模，UV拆分，SP绘制全套PBR贴图</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="f.png" alt="卡通街道场景">
-      <div class="work-desc">
-        <h4>卡通街道场景</h4>
-        <p>多资产组合搭建，UE引擎灯光与材质调试</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="qwert.jpg" alt="卡通卧室室内场景">
-      <div class="work-desc">
-        <h4>卡通卧室室内场景</h4>
-        <p>全套室内资产制作，优化布线与UV布局</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="ft.png" alt="道具资产练习">
-      <div class="work-desc">
-        <h4>道具资产练习</h4>
-        <p>硬表面结构练习，倒角与细节处理</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="h.jpg" alt="场景氛围渲染">
-      <div class="work-desc">
-        <h4>场景氛围渲染</h4>
-        <p>资产整理，引擎灯光调试输出效果图</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="hj56e.png" alt="模型结构练习">
-      <div class="work-desc">
-        <h4>模型结构练习</h4>
-        <p>形体塑造练习，关注模型比例结构</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="iy.png" alt="PBR材质练习">
-      <div class="work-desc">
-        <h4>PBR材质练习</h4>
-        <p>练习不同材质的质感表现与贴图层次</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="jg.jpg" alt="小型场景资产">
-      <div class="work-desc">
-        <h4>小型场景资产</h4>
-        <p>模块化场景资产制作练习</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="tyhte.png" alt="建模综合练习">
-      <div class="work-desc">
-        <h4>建模综合练习</h4>
-        <p>完整从建模到材质输出练习</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="uk.jpg" alt="展台设计资产">
-      <div class="work-desc">
-        <h4>展台设计资产</h4>
-        <p>硬表面展台，资产导出FBX用于引擎</p>
-      </div>
-    </div>
-    <div class="work-card">
-      <img src="ygr.jpg" alt="渲染输出作品">
-      <div class="work-desc">
-        <h4>渲染输出作品</h4>
-        <p>模型完成后引擎渲染效果图输出</p>
-      </div>
-    </div>
+  <div class="card">
+    <h3>作品说明</h3>
+    <p>个人作品包含：硬表面游戏道具、次世代道具练习、卡通街道场景、卡通卧室室内场景、展台设计等。</p>
+    <p>熟练完成：模型搭建‑低模拓扑‑UV拆分‑PBR贴图烘焙‑FBX导出‑UE引擎导入调试完整流程。</p>
+    <p>后续你想放图片的时候，告诉我，我再帮你加上图片模块。</p>
   </div>
 </section>
 
@@ -428,7 +309,7 @@ footer{
   <h2 class="section-title">荣誉与证书</h2>
   <div class="card">
     <h3>竞赛获奖</h3>
-    <p>四川省大学生农业创意设计大赛 三等奖</p>
+    <p>🏆四川省大学生农业创意设计大赛 三等奖</p>
     <br>
     <p>参与省级设计赛事，独立完成3D相关参赛作品，锻炼三维创作能力，熟悉完整作品的创作、调整、提交参赛全流程。</p>
   </div>
@@ -459,25 +340,9 @@ footer{
 © 2026 谭雪情 | 3D次世代游戏模型师作品集 GitHub Pages
 </footer>
 
-<div class="img-modal" id="imgModal">
-  <span class="close-modal">×</span>
-  <img src="" id="modalImg">
-</div>
 <button id="backTop">↑</button>
 
 <script>
-const modal = document.getElementById("imgModal");
-const modalImg = document.getElementById("modalImg");
-const closeModal = document.querySelector(".close-modal");
-document.querySelectorAll(".work-card img").forEach(img=>{
-  img.onclick=()=>{
-    modal.style.display="flex";
-    modalImg.src=img.src;
-  }
-})
-closeModal.onclick=()=>modal.style.display="none";
-modal.onclick=e=>{if(e.target===modal) modal.style.display="none";}
-
 const backTopBtn = document.getElementById("backTop");
 window.addEventListener("scroll",()=>{
   if(window.scrollY>450){
