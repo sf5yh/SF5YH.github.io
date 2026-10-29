@@ -12,7 +12,6 @@ body{
   color:#523f2f;
   line-height:1.85;
 }
-/*顶部导航*/
 header{
   position:fixed;
   width:100%;
@@ -28,11 +27,7 @@ header{
 }
 .logo{font-size:21px;font-weight:bold;color:#ff7800;letter-spacing:1px;}
 nav{display:flex;gap:24px;}
-nav a{
-  text-decoration:none;
-  color:#5c4836;
-  font-size:14.5px;
-}
+nav a{text-decoration:none;color:#5c4836;font-size:14.5px;}
 nav a:hover{color:#ff7800;}
 .nav-btn{
   padding:8px 20px;
@@ -42,8 +37,6 @@ nav a:hover{color:#ff7800;}
   text-decoration:none;
   box-shadow:0 4px 12px #ff880033;
 }
-
-/*首屏*/
 .hero{
   min-height:100vh;
   padding:130px 50px 90px;
@@ -87,8 +80,6 @@ nav a:hover{color:#ff7800;}
   padding:13px;
 }
 .avatar-box img{width:100%;height:100%;object-fit:cover;border-radius:16px;border:3px solid #fff;}
-
-/*通用区块 全部纵向往下堆叠，页面变长*/
 section{padding:85px 55px;}
 .section-title{
   font-size:31px;
@@ -105,17 +96,11 @@ section{padding:85px 55px;}
   margin-bottom:24px;
 }
 .card h3{color:#ff7800;margin-bottom:13px;font-size:20px;}
-
-/*两栏卡片*/
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
-
-/*技能进度条*/
 .bar-item{margin-bottom:20px;}
 .bar-row{display:flex;justify-content:space-between;margin-bottom:6px;}
 .bar-bg{height:12px;background:rgba(255,255,255,0.6);border-radius:8px;overflow:hidden;}
 .bar-fill{height:100%;background:linear-gradient(90deg,#ff9538,#ff6b00);width:0;transition:1.3s;}
-
-/*作品网格*/
 .work-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
@@ -133,8 +118,6 @@ section{padding:85px 55px;}
 .work-desc{padding:18px;}
 .work-desc h4{margin-bottom:7px;color:#4e3c2d;}
 .work-desc p{font-size:14px;color:#75604c;}
-
-/*时间线*/
 .timeline{border-left:3px solid #ffbc77;padding-left:28px;}
 .timeline-item{position:relative;margin-bottom:34px;}
 .timeline-item::before{
@@ -146,8 +129,6 @@ section{padding:85px 55px;}
   left:-34px;top:5px;
   box-shadow:0 0 0 4px #ffe2c4;
 }
-
-/*图片弹窗*/
 .img-modal{
   position:fixed;inset:0;
   background:rgba(0,0,0,0.85);
@@ -157,8 +138,6 @@ section{padding:85px 55px;}
 }
 .img-modal img{max-width:90%;max-height:90vh;border-radius:10px;}
 .close-modal{position:absolute;top:25px;right:35px;color:#fff;font-size:34px;cursor:pointer;}
-
-/*回到顶部*/
 #backTop{
   position:fixed;right:28px;bottom:28px;
   width:44px;height:44px;
@@ -171,7 +150,6 @@ section{padding:85px 55px;}
   display:none;
   z-index:98;
 }
-
 footer{
   text-align:center;
   padding:35px 20px;
@@ -179,8 +157,6 @@ footer{
   background:rgba(255,255,255,0.45);
   color:#7a6450;
 }
-
-/*移动端适配*/
 @media(max-width:840px){
   header{padding:15px 16px;}
   nav{gap:10px;}
@@ -258,11 +234,11 @@ footer{
 
   <div class="card">
     <h3>个人优势说明</h3>
-    <p>✅熟悉游戏模型布线、面数控制、UV优化等游戏行业规范</p>
-    <p>✅拥有外包和商业项目实战经验，了解真实项目交付标准</p>
-    <p>✅擅长硬表面道具制作，同时可以完成卡通类场景搭建工作</p>
-    <p>✅可以配合需求反复修改模型，执行力强，守时交付</p>
-    <p>✅掌握资产从建模到导入虚幻引擎、Unity的完整链路</p>
+    <p>熟悉游戏模型布线、面数控制、UV优化等游戏行业规范</p>
+    <p>拥有外包和商业项目实战经验，了解真实项目交付标准</p>
+    <p>擅长硬表面道具制作，同时可以完成卡通类场景搭建工作</p>
+    <p>可以配合需求反复修改模型，执行力强，守时交付</p>
+    <p>掌握资产从建模到导入虚幻引擎、Unity的完整链路</p>
   </div>
 </section>
 
@@ -338,14 +314,14 @@ footer{
       </div>
     </div>
     <div class="work-card">
-      <img src="hj.jpg" alt="道具资产练习">
+      <img src="ft.png" alt="道具资产练习">
       <div class="work-desc">
         <h4>道具资产练习</h4>
         <p>硬表面结构练习，倒角与细节处理</p>
       </div>
     </div>
     <div class="work-card">
-      <img src="ygr.jpg" alt="场景氛围渲染">
+      <img src="h.jpg" alt="场景氛围渲染">
       <div class="work-desc">
         <h4>场景氛围渲染</h4>
         <p>资产整理，引擎灯光调试输出效果图</p>
@@ -387,7 +363,7 @@ footer{
       </div>
     </div>
     <div class="work-card">
-      <img src="tYhrte.png" alt="渲染输出作品">
+      <img src="ygr.jpg" alt="渲染输出作品">
       <div class="work-desc">
         <h4>渲染输出作品</h4>
         <p>模型完成后引擎渲染效果图输出</p>
@@ -452,7 +428,7 @@ footer{
   <h2 class="section-title">荣誉与证书</h2>
   <div class="card">
     <h3>竞赛获奖</h3>
-    <p>🏆四川省大学生农业创意设计大赛 三等奖</p>
+    <p>四川省大学生农业创意设计大赛 三等奖</p>
     <br>
     <p>参与省级设计赛事，独立完成3D相关参赛作品，锻炼三维创作能力，熟悉完整作品的创作、调整、提交参赛全流程。</p>
   </div>
@@ -490,7 +466,6 @@ footer{
 <button id="backTop">↑</button>
 
 <script>
-//图片点击放大
 const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
 const closeModal = document.querySelector(".close-modal");
@@ -503,7 +478,6 @@ document.querySelectorAll(".work-card img").forEach(img=>{
 closeModal.onclick=()=>modal.style.display="none";
 modal.onclick=e=>{if(e.target===modal) modal.style.display="none";}
 
-//回到顶部
 const backTopBtn = document.getElementById("backTop");
 window.addEventListener("scroll",()=>{
   if(window.scrollY>450){
@@ -514,7 +488,6 @@ window.addEventListener("scroll",()=>{
 })
 backTopBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
-//技能条滚动动画
 const skillBars = document.querySelectorAll(".bar-fill");
 const skillSection = document.getElementById("skill");
 let skillAnimate = false;
