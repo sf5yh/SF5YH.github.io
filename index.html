@@ -1,200 +1,352 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh‑CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>谭雪情 - 3D模型作品集简历</title>
+    <meta charset="UTF‑8">
+    <meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+    <title>谭雪情 | 3D次世代游戏模型师</title>
     <style>
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft Yahei", sans-serif;
+            box-sizing: border‑box;
+            font-family: "Microsoft YaHei", sans‑serif;
+        }
+        html {
+            scroll‑behavior: smooth;
         }
         body {
-            background-color: #f4f7fa;
-            color: #333;
-            line-height: 1.7;
+            background‑color: #12151c;
+            color: #e2e6ed;
+            line‑height: 1.8;
         }
-        /* 导航栏 */
-        nav {
-            background: #2c3e50;
-            padding: 16px 0;
-            position: sticky;
-            top:0;
-            z-index:99;
+
+        /* 顶部透明导航栏 滚动后变深色 */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z‑index: 999;
+            padding: 26px 60px;
+            display: flex;
+            justify‑content: space‑between;
+            align‑items: center;
+            background‑color: transparent;
+            transition: background 0.3s;
         }
-        .nav-wrap {
-            max-width:1000px;
-            margin:0 auto;
-            display:flex;
-            gap:40px;
-            justify-content:center;
+        header.scrolled {
+            background‑color: rgba(18,21,28,0.92);
+            backdrop‑filter: blur(8px);
         }
-        .nav-wrap button {
-            background: transparent;
-            border: none;
+        .logo {
+            font‑size: 22px;
+            font‑weight: 600;
+            letter‑spacing: 2px;
             color:#fff;
-            font-size:17px;
-            cursor: pointer;
-            padding:4px 8px;
         }
-        .nav-wrap button:hover {
-            color:#42a5f5;
+        nav a {
+            text‑decoration: none;
+            color:#b0b8c4;
+            margin: 0 16px;
+            font‑size:15px;
         }
-        .nav-wrap button.active {
-            border-bottom: 2px solid #42a5f5;
-            color:#42a5f5;
+        nav a:hover {
+            color:#58b7ff;
         }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            background: #fff;
-            padding:40px;
-            border-radius:12px;
-            box-shadow: 0 2px 12px #0000001a;
-            min-height: 500px;
+        .btn‑contact‑nav{
+            padding:8px 22px;
+            border‑radius:30px;
+            background‑color:#276099;
+            color:#fff;
+            text‑decoration:none;
+            font‑size:14px;
         }
-        /* 面板：默认隐藏，激活才显示 */
-        .tab-panel {
-            display: none;
+
+        /* 首屏Hero全屏 */
+        .hero {
+            min‑height:100vh;
+            display:flex;
+            align‑items:center;
+            padding:0 80px;
+            background: radial‑gradient(circle at 20% 30%, #1c2b40 0%, #12151c 70%);
         }
-        .tab-panel.active {
-            display: block;
+        .hero‑content{
+            max‑width:650px;
         }
-        h2 {
-            border-left:5px solid #2c3e50;
-            padding-left:12px;
-            margin-bottom:20px;
-            color:#2c3e50;
+        .hero‑sub{
+            color:#58b7ff;
+            font‑size:14px;
+            letter‑spacing:3px;
+            margin‑bottom:14px;
         }
-        #home {
-            text-align:center;
-            padding:30px 0;
+        .hero h1{
+            font‑size:64px;
+            margin‑bottom:10px;
         }
-        #home h1 {
-            font-size:32px;
-            color:#222;
+        .hero‑job{
+            font‑size:20px;
+            color:#a0b4cc;
+            margin‑bottom:32px;
         }
-        .job-title {
-            font-size:20px;
-            color:#446084;
-            margin:8px 0;
+        .hero‑btns a{
+            display:inline‑block;
+            padding:12px 28px;
+            border‑radius:32px;
+            text‑decoration:none;
+            margin‑right:14px;
+            font‑size:15px;
         }
-        .base-info {
-            margin-top:12px;
-            color:#555;
+        .btn‑works{
+            background‑color:#276099;
+            color:#fff;
         }
-        ul {
-            padding-left:22px;
+        .btn‑resume{
+            border:1px solid #445570;
+            color:#e2e6ed;
         }
-        .item-block{
-            margin-bottom:16px;
+        /* 技能胶囊标签 */
+        .tag‑wrap{
+            margin‑top:40px;
         }
+        .tag{
+            display:inline‑block;
+            background‑color:rgba(88,183,255,0.12);
+            border:1px solid #2c4463;
+            color:#78bfff;
+            padding:7px 16px;
+            border‑radius:24px;
+            font‑size:13px;
+            margin:6px 5px;
+        }
+        .scroll‑hint{
+            position:absolute;
+            bottom:40px;
+            left:50%;
+            transform:translateX(-50%);
+            opacity:0.45;
+            font‑size:13px;
+        }
+
+        /* 通用区块 */
+        section{
+            padding:100px 80px;
+        }
+        .section‑title{
+            font‑size:34px;
+            margin‑bottom:30px;
+            color:#ffffff;
+            border‑left:4px solid #58b7ff;
+            padding‑left:14px;
+        }
+
+        /* 关于我 */
+        #about p{
+            max‑width:780px;
+            color:#b0b8c4;
+            font‑size:16px;
+        }
+
+        /* 作品集网格 */
+        .work‑grid{
+            display:grid;
+            grid‑template‑columns: repeat(auto‑fill, minmax(320px,1fr));
+            gap:28px;
+        }
+        .work‑card{
+            background‑color:#1b202b;
+            border‑radius:14px;
+            overflow:hidden;
+            border:1px solid #272d3b;
+            transition: 0.25s;
+        }
+        .work‑card:hover{
+            transform: translateY(-6px);
+            border‑color:#345882;
+        }
+        .work‑card img{
+            width:100%;
+            aspect‑ratio:16 / 10;
+            object‑fit:cover;
+            display:block;
+        }
+        .work‑desc{
+            padding:16px 20px;
+        }
+        .work‑desc h4{
+            margin‑bottom:6px;
+        }
+        .work‑desc p{
+            color:#93a2b8;
+            font‑size:14px;
+        }
+
+        /* 简历区块 */
+        #resume{
+            background‑color:#161a23;
+            margin:0 40px;
+            border‑radius:20px;
+        }
+        .resume‑block{
+            margin‑bottom:34px;
+        }
+        .resume‑block h3{
+            color:#58b7ff;
+            margin‑bottom:10px;
+        }
+        .resume‑block p{
+            color:#b0b8c4;
+        }
+
+        /* 联系 */
         #contact{
-            background:#f0f4f8;
-            padding:24px;
-            border-radius:8px;
+            text‑align:center;
+        }
+        .contact‑text{
+            margin‑top:20px;
+            font‑size:17px;
+            color:#b0b8c4;
+        }
+
+        /* 移动端适配 */
+        @media(max‑width:800px){
+            header{
+                padding:18px 20px;
+            }
+            nav a{
+                margin:0 7px;
+                font‑size:13px;
+            }
+            .hero{
+                padding:0 20px;
+            }
+            .hero h1{
+                font‑size:42px;
+            }
+            section{
+                padding:70px 20px;
+            }
+            #resume{
+                margin:0 10px;
+            }
         }
     </style>
 </head>
 <body>
-<!--导航按钮（点击切换）-->
-<nav>
-    <div class="nav-wrap">
-        <button class="tab-btn active" data-target="home">首页</button>
-        <button class="tab-btn" data-target="intro">个人简介</button>
-        <button class="tab-btn" data-target="edu">教育背景</button>
-        <button class="tab-btn" data-target="skill">职业技能</button>
-        <button class="tab-btn" data-target="project">项目实践</button>
-        <button class="tab-btn" data-target="cert">荣誉证书</button>
-        <button class="tab-btn" data-target="contact">联系方式</button>
-    </div>
-</nav>
+<header id="mainHeader">
+    <div class="logo">谭雪情</div>
+    <nav>
+        <a href="#home">首页</a>
+        <a href="#about">关于我</a>
+        <a href="#works">作品集</a>
+        <a href="#resume">个人简历</a>
+        <a href="#contact">联系我</a>
+    </nav>
+    <a href="#contact" class="btn‑contact‑nav">联系我</a>
+</header>
 
-<div class="container">
-    <!--首页面板-->
-    <div class="tab-panel active" id="home">
+<section id="home" class="hero">
+    <div class="hero‑content">
+        <div class="hero‑sub">3D GAME ARTIST｜次世代道具/场景建模</div>
         <h1>谭雪情</h1>
-        <div class="job-title">求职意向：3D 游戏模型师(次世代道具/ 场景)</div>
-        <div class="base-info">
-            生日：2006.12.22 | 现居：四川·成都
+        <div class="hero‑job">求职意向：3D游戏模型师</div>
+        <div class="hero‑btns">
+            <a href="#works" class="btn‑works">浏览作品集</a>
+            <a href="#resume" class="btn‑resume">查看简历</a>
+        </div>
+        <div class="tag‑wrap">
+            <span class="tag">3ds Max</span>
+            <span class="tag">Blender</span>
+            <span class="tag">Maya</span>
+            <span class="tag">Substance Painter</span>
+            <span class="tag">PBR全流程</span>
+            <span class="tag">UV拆分</span>
+            <span class="tag">低模拓扑</span>
+            <span class="tag">贴图烘焙</span>
+            <span class="tag">UE</span>
+            <span class="tag">Unity</span>
         </div>
     </div>
+    <div class="scroll‑hint">▼ SCROLL DOWN 向下滚动</div>
+</section>
 
-    <!--个人简介面板-->
-    <div class="tab-panel" id="intro">
-        <h2>个人简介</h2>
-        <p>学习能力、执行能力和行动能力强，做事细心有耐心。在校长期承接建模外包，积累大量个人作品；跟随企业老师参与商业项目，拥有真实商业交付经验。善于沟通，能够快速理解甲方修改意见，可以按时完成项目交付，对待项目认真负责。意向从事次世代道具、场景3D游戏模型相关岗位。</p>
-    </div>
+<section id="about">
+    <h2 class="section‑title">关于我</h2>
+    <p>学习能力、执行能力和行动能力强，做事细心有耐心。在校长期承接建模外包，积累大量个人作品；跟随企业老师参与商业项目，拥有真实商业交付经验。善于沟通，能够快速理解甲方修改意见，可以按时完成项目交付，对待项目认真负责。意向从事次世代道具、场景3D游戏模型岗位。</p>
+</section>
 
-    <!--教育背景面板-->
-    <div class="tab-panel" id="edu">
-        <h2>教育背景</h2>
-        <div class="item-block">
-            <strong>2024.09‑2027.07 &nbsp;成都职业技术学院</strong>
-            <p>专业：虚拟现实技术应用</p>
-            <p>主修课程：游戏道具制作，数字化模型与动画，场景搭建，blender数字化模型动画，综合项目开发，虚拟现实综合应用，色彩与界面</p>
+<section id="works">
+    <h2 class="section‑title">作品集</h2>
+    <div class="work‑grid">
+        <div class="work‑card">
+            <img src="work1.png" alt="道具作品">
+            <div class="work‑desc">
+                <h4>硬表面游戏道具</h4>
+                <p>3ds Max 建模，SP PBR材质烘焙</p>
+            </div>
+        </div>
+        <div class="work‑card">
+            <img src="work2.png" alt="卡通街道">
+            <div class="work‑desc">
+                <h4>卡通街道场景</h4>
+                <p>场景搭建，UE地编灯光调试</p>
+            </div>
+        </div>
+        <div class="work‑card">
+            <img src="work3.png" alt="室内场景">
+            <div class="work‑desc">
+                <h4>卡通卧室场景</h4>
+                <p>模型布线优化，UV排布</p>
+            </div>
+        </div>
+        <div class="work‑card">
+            <img src="work4.png" alt="展台">
+            <div class="work‑desc">
+                <h4>展台设计</h4>
+                <p>硬表面建模，资产导出</p>
+            </div>
         </div>
     </div>
+</section>
 
-    <!--职业技能面板-->
-    <div class="tab-panel" id="skill">
-        <h2>职业技能</h2>
-        <div class="item-block">
-            <h4>建模资产能力</h4>
-            <ul>
-                <li>熟练3ds Max，精通编辑多边形、UV拆分、FBX资产导出；了解Blender、Maya、C4D，用于模型导入、轴向校验、资产预览</li>
-                <li>熟练Substance Painter制作PBR贴图，掌握完整PBR次世代全流程：低模拓扑、UV排布、贴图烘焙</li>
-                <li>熟悉游戏模型布线规范、面数优化，擅长硬表面建模</li>
-            </ul>
-        </div>
-        <div class="item-block">
-            <h4>软件实操能力</h4>
-            <p>熟练：3ds Max、Blender、Maya、Substance Painter、Photoshop、Unreal Engine、Unity；可完成UE模型导入，基础材质灯光调试。</p>
-            <p>实操项目：UE地编、3ds max游戏道具、卡通街道、卡通卧室场景、展台设计</p>
-        </div>
+<section id="resume">
+    <h2 class="section‑title">个人简历</h2>
+    <div class="resume‑block">
+        <h3>教育背景</h3>
+        <p>2024.09‑2027.07｜成都职业技术学院｜虚拟现实技术应用</p>
+        <p>主修课程：游戏道具制作，数字化模型与动画，场景搭建，Blender，综合项目开发，虚拟现实综合应用，色彩与界面</p>
     </div>
-
-    <!--项目实践面板-->
-    <div class="tab-panel" id="project">
-        <h2>项目实践经历</h2>
-        <p>在校承接建模外包，产出多套建模作品；跟随企业老师参与商业建模项目。能够接收甲方需求，理解修改意见，按照商业标准交付资产，按时迭代修改模型，具备商业项目实战经验。</p>
-        <!-- 后面你放作品图就写 <img src="你的图片名.png" style="width:400px;margin-top:15px;"> -->
+    <div class="resume‑block">
+        <h3>职业技能</h3>
+        <p>熟练使用3ds Max编辑多边形、UV拆分、FBX资产导出；掌握Substance Painter完成PBR次世代全流程，低模拓扑、UV排布、贴图烘焙；熟悉游戏布线、面数优化，擅长硬表面；可在UE、Unity导入资产调试材质灯光。</p>
     </div>
-
-    <!--荣誉证书面板-->
-    <div class="tab-panel" id="cert">
-        <h2>荣誉证书</h2>
-        <ul>
-            <li>四川省大学生农业创意设计大赛 三等奖</li>
-        </ul>
+    <div class="resume‑block">
+        <h3>项目实践</h3>
+        <p>在校承接建模外包，产出多套建模作品；跟随企业老师参与商业建模项目。理解甲方修改意见，按时迭代修改模型，具备商业项目交付经验。</p>
     </div>
+    <div class="resume‑block">
+        <h3>荣誉证书</h3>
+        <p>四川省大学生农业创意设计大赛 三等奖</p>
+    </div>
+</section>
 
-    <!--联系方式面板-->
-    <div class="tab-panel" id="contact">
-        <h2>联系方式</h2>
+<section id="contact">
+    <h2 class="section‑title">联系我</h2>
+    <div class="contact‑text">
         <p>联系电话：181‑2325‑7641</p>
-        <p>所在地：四川 · 成都</p>
-        <p>求职岗位：3D游戏模型师（次世代道具 / 场景）</p>
+        <p>现居：四川 · 成都</p>
+        <p>求职方向：3D游戏模型师（次世代道具 / 场景）</p>
     </div>
-</div>
+</section>
 
 <script>
-    // 选项卡切换逻辑
-    const btns = document.querySelectorAll('.tab-btn');
-    const panels = document.querySelectorAll('.tab-panel');
-    btns.forEach(btn=>{
-        btn.onclick = function(){
-            // 清空全部激活状态
-            btns.forEach(b=>b.classList.remove('active'));
-            panels.forEach(p=>p.classList.remove('active'));
-            // 给当前点击的按钮和对应面板加上active
-            this.classList.add('active');
-            const targetId = this.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
-        }
-    })
+// 滚动导航变色
+const headerDom = document.getElementById('mainHeader');
+window.addEventListener('scroll',()=>{
+    if(window.scrollY > 80){
+        headerDom.classList.add('scrolled');
+    }else{
+        headerDom.classList.remove('scrolled');
+    }
+})
 </script>
 </body>
 </html>
