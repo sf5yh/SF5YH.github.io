@@ -5,193 +5,268 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>谭雪情｜3D次世代游戏模型师作品集</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif;}
+/* ========== 基础重置 ========== */
+*{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
-  background:linear-gradient(140deg,#fff9ed,#ffe7c9);
-  color:#523f2f;
-  line-height:1.85;
+  font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;
+  background:#0f1115;
+  color:#e8e6e3;
+  line-height:1.75;
+  overflow-x:hidden;
 }
+a{color:inherit;text-decoration:none;}
+
+/* ========== 导航栏 ========== */
 header{
-  position:fixed;
-  width:100%;
-  top:0;
-  z-index:999;
-  padding:18px 40px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(255,249,237,0.75);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid #ffd399;
+  position:fixed;top:0;left:0;width:100%;
+  padding:14px 48px;z-index:999;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(15,17,21,0.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:all 0.3s;
 }
-.logo{font-size:21px;font-weight:bold;color:#ff8822;letter-spacing:1px;}
-nav{display:flex;gap:24px;flex-wrap:wrap;}
-nav a{text-decoration:none;color:#77583f;font-size:14.5px;}
-nav a:hover{color:#ff8822;}
+.logo{
+  font-size:18px;font-weight:700;letter-spacing:2px;
+  background:linear-gradient(90deg,#ff9966,#ff5e62);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+nav{display:flex;gap:26px;flex-wrap:wrap;}
+nav a{
+  font-size:13.5px;color:#b5b0a8;position:relative;padding:4px 0;
+  transition:color 0.25s;
+}
+nav a::after{
+  content:"";position:absolute;bottom:-2px;left:0;width:0;height:2px;
+  background:linear-gradient(90deg,#ff9966,#ff5e62);transition:width 0.3s;
+}
+nav a:hover{color:#fff;}
+nav a:hover::after{width:100%;}
 .nav-btn{
-  padding:8px 20px;
-  border-radius:25px;
-  background:linear-gradient(90deg,#ff9944,#ff7722);
-  color:#fff;
-  text-decoration:none;
-  box-shadow:0 4px 12px rgba(255,136,34,0.22);
+  padding:8px 22px;border-radius:30px;font-size:13px;
+  background:linear-gradient(90deg,#ff9966,#ff5e62);color:#fff!important;
+  box-shadow:0 4px 18px rgba(255,94,98,0.3);
+  transition:transform 0.25s,box-shadow 0.25s;
 }
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(255,94,98,0.45);}
+
+/* ========== Hero首页 ========== */
 .hero{
   min-height:100vh;
-  padding:130px 50px 90px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  gap:40px;
+  padding:120px 56px 80px;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:60px;
+  background:radial-gradient(ellipse at 30% 20%,rgba(255,153,102,0.15),transparent 60%),
+              radial-gradient(ellipse at 70% 80%,rgba(255,94,98,0.12),transparent 55%),
+              #0f1115;
 }
-.hero-text h1{font-size:54px;color:#4e3c2d;margin-bottom:8px;}
-.hero-sub{color:#ff8822;font-size:15px;letter-spacing:2px;margin-bottom:12px;}
-.hero-job{font-size:18px;color:#705b47;margin-bottom:30px;}
-.hero-buttons{display:flex;gap:15px;margin-bottom:35px;}
-.btn-orange{
-  padding:12px 28px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#ff9944,#ff7722);
-  color:#fff;
-  text-decoration:none;
+.hero-sub{
+  color:#ff9966;font-size:13px;letter-spacing:4px;margin-bottom:18px;
+  text-transform:uppercase;font-weight:500;
 }
-.btn-light{
-  padding:12px 28px;
-  border-radius:30px;
-  background:#ffffff;
-  color:#ff8822;
-  border:1px solid #ffcd9c;
-  text-decoration:none;
+.hero-text h1{
+  font-size:72px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-1px;
+  background:linear-gradient(135deg,#fff 30%,#ffd4b8);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  line-height:1.1;
 }
-.tags-wrap{display:flex;flex-wrap:wrap;gap:9px;}
+.hero-job{font-size:18px;color:#a8a29a;margin-bottom:36px;letter-spacing:1px;}
+.hero-buttons{display:flex;gap:16px;margin-bottom:42px;}
+.btn-primary{
+  padding:14px 34px;border-radius:34px;font-size:14.5px;font-weight:600;
+  background:linear-gradient(90deg,#ff9966,#ff5e62);color:#fff;
+  box-shadow:0 6px 22px rgba(255,94,98,0.35);
+  transition:transform 0.25s,box-shadow 0.25s;
+  cursor:pointer;border:none;display:inline-block;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,94,98,0.5);}
+.btn-ghost{
+  padding:14px 34px;border-radius:34px;font-size:14.5px;font-weight:600;
+  background:rgba(255,255,255,0.06);color:#e8e6e3;
+  border:1px solid rgba(255,255,255,0.15);
+  transition:background 0.25s,border-color 0.25s;
+  display:inline-block;
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:#ff9966;}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:10px;}
 .tag{
-  padding:6px 15px;
-  border-radius:22px;
-  background:rgba(255,255,255,0.7);
-  color:#ff8822;
-  border:1px solid #ffcd9c;
-  font-size:13px;
+  padding:7px 16px;border-radius:20px;font-size:12.5px;
+  background:rgba(255,255,255,0.05);color:#d4cfc7;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:all 0.25s;
 }
-.hero-img-box{display:flex;justify-content:center;}
+.tag:hover{
+  background:linear-gradient(90deg,rgba(255,153,102,0.2),rgba(255,94,98,0.2));
+  border-color:#ff9966;color:#fff;transform:translateY(-2px);
+}
+
+/* 头像 */
+.hero-img-box{display:flex;justify-content:center;align-items:center;}
+.avatar-wrap{
+  position:relative;width:380px;height:480px;
+}
+.avatar-wrap::before{
+  content:"";position:absolute;inset:-8px;border-radius:28px;
+  background:linear-gradient(135deg,#ff9966,#ff5e62,#ff9966);
+  z-index:-1;animation:spin 6s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
 .avatar-box{
-  width:330px;height:410px;
-  border-radius:22px;
-  background:linear-gradient(150deg,#ffbb66,#ff7722);
-  padding:13px;
+  width:100%;height:100%;border-radius:24px;overflow:hidden;
+  border:3px solid #0f1115;
 }
-.avatar-box img{width:100%;height:100%;object-fit:cover;border-radius:16px;border:3px solid #fff;}
-section{padding:85px 55px;}
+.avatar-box img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* ========== 通用区块 ========== */
+section{padding:100px 56px;}
 .section-title{
-  font-size:31px;
-  border-left:5px solid #ff8822;
-  padding-left:14px;
-  margin-bottom:32px;
-  color:#4e3c2d;
+  font-size:36px;font-weight:800;color:#fff;margin-bottom:50px;
+  display:flex;align-items:center;gap:16px;letter-spacing:-0.5px;
+}
+.section-title::before{
+  content:"";width:5px;height:36px;border-radius:3px;
+  background:linear-gradient(180deg,#ff9966,#ff5e62);
 }
 .card{
-  background:rgba(255,255,255,0.64);
-  border-radius:20px;
-  padding:30px;
-  border:1px solid #ffd399;
-  margin-bottom:24px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;padding:32px;
+  transition:border-color 0.3s,transform 0.3s;
 }
-.card h3{color:#ff8822;margin-bottom:13px;font-size:20px;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
-.bar-item{margin-bottom:20px;}
-.bar-row{display:flex;justify-content:space-between;margin-bottom:6px;}
-.bar-bg{height:12px;background:rgba(255,255,255,0.6);border-radius:8px;overflow:hidden;}
-.bar-fill{height:100%;background:linear-gradient(90deg,#ff9944,#ff7722);width:0;transition:1.3s;}
+.card:hover{border-color:rgba(255,153,102,0.4);transform:translateY(-3px);}
+.card h3{
+  color:#ff9966;margin-bottom:14px;font-size:20px;font-weight:700;
+  display:flex;align-items:center;gap:10px;
+}
+.card h3::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:linear-gradient(135deg,#ff9966,#ff5e62);
+}
+.card p{color:#c5bfb6;margin-bottom:6px;font-size:14.5px;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
+
+/* ========== 技能条 ========== */
+.bar-item{margin-bottom:18px;}
+.bar-row{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#c5bfb6;}
+.bar-row span:last-child{color:#ff9966;font-weight:600;}
+.bar-bg{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;}
+.bar-fill{
+  height:100%;border-radius:4px;width:0;transition:width 1.4s cubic-bezier(0.22,1,0.36,1);
+  background:linear-gradient(90deg,#ff9966,#ff5e62);
+}
+
+/* ========== 作品集网格 ========== */
+#portfolio{background:#0a0c10;}
 .work-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
-  gap:26px;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:22px;
 }
 .work-card{
-  background:#fff;
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid #ffcd9c;
-  transition:0.28s;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:16px;overflow:hidden;
+  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s,border-color 0.35s;
+  cursor:pointer;
 }
-.work-card:hover{transform:translateY(-8px);box-shadow:0 12px 26px rgba(255,136,34,0.12);}
+.work-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(255,153,102,0.35);
+  box-shadow:0 20px 48px rgba(0,0,0,0.5),0 0 0 1px rgba(255,153,102,0.2);
+}
 .work-img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  cursor:pointer;
+  width:100%;height:220px;object-fit:cover;display:block;
+  transition:transform 0.5s ease;
 }
-.work-desc{padding:18px;}
-.work-desc h4{margin-bottom:7px;color:#4e3c2d;}
-.work-desc p{font-size:14px;color:#75604c;}
-.timeline{border-left:3px solid #ffbc77;padding-left:28px;}
-.timeline-item{position:relative;margin-bottom:34px;}
+.work-card:hover .work-img{transform:scale(1.06);}
+.work-desc{padding:18px 20px;}
+.work-desc h4{color:#fff;margin-bottom:4px;font-size:15px;font-weight:600;}
+.work-desc p{color:#8a847c;font-size:13px;}
+
+/* ========== 时间线 ========== */
+.timeline{position:relative;padding-left:34px;}
+.timeline::before{
+  content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,#ff9966,#ff5e62,transparent);
+}
+.timeline-item{position:relative;margin-bottom:28px;}
 .timeline-item::before{
-  content:"";
-  width:13px;height:13px;
-  border-radius:50%;
-  background:#ff8822;
-  position:absolute;
-  left:-34px;top:5px;
-  box-shadow:0 0 0 4px #ffe2c4;
+  content:"";position:absolute;left:-34px;top:24px;
+  width:14px;height:14px;border-radius:50%;
+  background:linear-gradient(135deg,#ff9966,#ff5e62);
+  box-shadow:0 0 0 4px #0f1115,0 0 0 6px rgba(255,94,98,0.25);
+  z-index:1;
 }
+
+/* ========== 大图预览模态 ========== */
 .img-modal{
-  position:fixed;inset:0;
-  background:rgba(0,0,0,0.85);
-  z-index:1000;
-  display:none;
-  align-items:center;justify-content:center;
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(0,0,0,0.92);
+  display:none;align-items:center;justify-content:center;
+  animation:fadeIn 0.25s;
 }
-.img-modal img{max-width:90%;max-height:90vh;border-radius:10px;}
-.close-modal{position:absolute;top:25px;right:35px;color:#fff;font-size:34px;cursor:pointer;}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.img-modal img{max-width:92%;max-height:90vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.6);}
+.close-modal{
+  position:absolute;top:24px;right:36px;
+  color:#fff;font-size:36px;cursor:pointer;font-weight:300;
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  transition:background 0.25s,transform 0.25s;
+}
+.close-modal:hover{background:rgba(255,94,98,0.5);transform:rotate(90deg);}
+
+/* ========== 返回顶部 ========== */
 #backTop{
-  position:fixed;right:28px;bottom:28px;
-  width:44px;height:44px;
-  border-radius:50%;
-  border:none;
-  background:linear-gradient(90deg,#ff9944,#ff7722);
-  color:#fff;
-  font-size:17px;
-  cursor:pointer;
-  display:none;
-  z-index:98;
+  position:fixed;right:32px;bottom:32px;
+  width:48px;height:48px;border-radius:50%;border:none;
+  background:linear-gradient(135deg,#ff9966,#ff5e62);color:#fff;font-size:18px;
+  cursor:pointer;display:none;z-index:98;
+  box-shadow:0 6px 20px rgba(255,94,98,0.35);
+  transition:transform 0.25s,box-shadow 0.25s;
 }
+#backTop:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(255,94,98,0.5);}
+
+/* ========== 底部 ========== */
 footer{
-  text-align:center;
-  padding:35px 20px;
-  border-top:1px solid #ffd399;
-  background:rgba(255,249,237,0.45);
-  color:#7a6450;
+  text-align:center;padding:40px 20px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  color:#6a655d;font-size:13px;
+  background:#0a0c10;
 }
-.tip-bar{
-  background:#fff3e0;
-  border-left:4px solid #ff8822;
-  padding:10px 16px;
-  font-size:13px;
-  color:#8a5a2d;
-  margin-bottom:20px;
-  border-radius:6px;
-}
-@media(max-width:840px){
-  header{padding:15px 16px;}
-  nav{gap:10px;}
+
+/* ========== 滚动动画 ========== */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ========== 响应式 ========== */
+@media(max-width:900px){
+  header{padding:12px 18px;}
+  nav{gap:12px;}
   nav a{font-size:12.5px;}
-  .hero{grid-template-columns:1fr;padding:115px 20px 70px;}
-  section{padding:65px 18px;}
+  .hero{grid-template-columns:1fr;padding:110px 22px 60px;gap:40px;}
+  .hero-text h1{font-size:48px;}
+  section{padding:70px 22px;}
+  .section-title{font-size:28px;}
   .two-col{grid-template-columns:1fr;}
+  .avatar-wrap{width:280px;height:360px;}
+  .nav-btn{display:none;}
 }
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">谭雪情 · 3D模型作品集</div>
+  <div class="logo">TAN XUEQING · 3D ARTIST</div>
   <nav>
     <a href="#home">首页</a>
     <a href="#about">关于我</a>
     <a href="#skill">专业技能</a>
     <a href="#portfolio">作品集</a>
     <a href="#project">项目实践</a>
-    <a href="#edu">教育信息</a>
+    <a href="#edu">教育经历</a>
     <a href="#honor">荣誉证书</a>
     <a href="#contact">联系我</a>
   </nav>
@@ -200,12 +275,12 @@ footer{
 
 <section id="home" class="hero">
   <div class="hero-text">
-    <div class="hero-sub">WELCOME｜次世代道具&场景模型</div>
+    <div class="hero-sub">3D NEXT-GENERATION ARTIST</div>
     <h1>谭雪情</h1>
     <div class="hero-job">求职意向：3D次世代PBR建模渲染</div>
     <div class="hero-buttons">
-      <a href="#portfolio" class="btn-orange">浏览全部作品</a>
-      <a href="#about" class="btn-light">了解更多</a>
+      <a href="#portfolio" class="btn-primary">浏览全部作品 →</a>
+      <a href="#about" class="btn-ghost">了解更多</a>
     </div>
     <div class="tags-wrap">
       <span class="tag">3ds Max</span>
@@ -221,15 +296,17 @@ footer{
     </div>
   </div>
   <div class="hero-img-box">
-    <div class="avatar-box">
-      <img src="images/touxiang.png" alt="个人头像">
+    <div class="avatar-wrap">
+      <div class="avatar-box">
+        <img src="images/touxiang.png" alt="个人头像">
+      </div>
     </div>
   </div>
 </section>
 
 <section id="about">
   <h2 class="section-title">关于我</h2>
-  <div class="two-col">
+  <div class="two-col fade-up">
     <div class="card">
       <h3>基础个人信息</h3>
       <p>姓名：谭雪情</p>
@@ -243,9 +320,8 @@ footer{
       <p>熟练次世代PBR完整制作流程，擅长硬表面道具建模、贴图制作、渲染输出，可独立完成资产从高模雕刻、拓扑低模、UV拆分、SP贴图烘焙绘制到渲染出图整套工作，有接单项目经验，对待作品细心严谨。</p>
     </div>
   </div>
-
-  <div class="card">
-    <h3>个人优势说明</h3>
+  <div class="card fade-up">
+    <h3>个人优势</h3>
     <p>✅ 熟悉硬表面布线、面数控制、UV规范等游戏美术标准</p>
     <p>✅ 有商业接单经验，理解项目交付规范</p>
     <p>✅ 可以根据需求调整资产风格，配合修改迭代</p>
@@ -254,44 +330,47 @@ footer{
 </section>
 
 <section id="skill">
-  <h2 class="section-title">专业技能详情</h2>
-  <div class="card">
-    <h3>建模能力</h3>
-    <p>主力使用3ds Max硬表面建模，掌握Blender、Maya、C4D辅助建模，熟练拓扑、UV展开、卡线、资产优化，规范产出游戏可用模型。</p>
-  </div>
-  <div class="card">
-    <h3>材质贴图能力</h3>
-    <p>Substance Painter制作PBR材质，掌握法线、AO、粗糙度、金属度贴图绘制烘焙，理解物理渲染逻辑。</p>
-  </div>
-  <div class="card">
-    <h3>引擎与渲染</h3>
-    <p>可将模型导入UE5进行预览，V-Ray、Corona渲染器出效果图，掌握基础灯光、构图调试。</p>
-  </div>
-
-  <div class="card">
-    <h3>软件熟练度</h3>
-    <div class="bar-item">
-      <div class="bar-row"><span>3ds Max</span><span>90%</span></div>
-      <div class="bar-bg"><div class="bar-fill" data-val="90"></div></div>
+  <h2 class="section-title">专业技能</h2>
+  <div class="two-col fade-up">
+    <div class="card">
+      <h3>建模能力</h3>
+      <p>主力使用 3ds Max 硬表面建模，掌握 Blender、Maya、C4D 辅助建模，熟练拓扑、UV 展开、卡线、资产优化，规范产出游戏可用模型。</p>
     </div>
-    <div class="bar-item">
-      <div class="bar-row"><span>Substance Painter</span><span>83%</span></div>
-      <div class="bar-bg"><div class="bar-fill" data-val="83"></div></div>
+    <div class="card">
+      <h3>材质贴图</h3>
+      <p>Substance Painter 制作 PBR 材质，掌握法线、AO、粗糙度、金属度贴图绘制烘焙，理解物理渲染逻辑。</p>
     </div>
-    <div class="bar-item">
-      <div class="bar-row"><span>Unreal Engine</span><span>75%</span></div>
-      <div class="bar-bg"><div class="bar-fill" data-val="75"></div></div>
+  </div>
+  <div class="two-col fade-up">
+    <div class="card">
+      <h3>引擎与渲染</h3>
+      <p>可将模型导入 UE5 进行预览，V-Ray、Corona 渲染器出效果图，掌握基础灯光、构图调试。</p>
     </div>
-    <div class="bar-item">
-      <div class="bar-row"><span>Blender / C4D / Maya</span><span>78%</span></div>
-      <div class="bar-bg"><div class="bar-fill" data-val="78"></div></div>
+    <div class="card">
+      <h3>软件熟练度</h3>
+      <div class="bar-item">
+        <div class="bar-row"><span>3ds Max</span><span>90%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-val="90"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-row"><span>Substance Painter</span><span>83%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-val="83"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-row"><span>Unreal Engine</span><span>75%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-val="75"></div></div>
+      </div>
+      <div class="bar-item">
+        <div class="bar-row"><span>Blender / C4D / Maya</span><span>78%</span></div>
+        <div class="bar-bg"><div class="bar-fill" data-val="78"></div></div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="portfolio">
-  <h2 class="section-title">作品集展示（全部图片）</h2>
-  <div class="work-grid">
+  <h2 class="section-title">作品集展示</h2>
+  <div class="work-grid fade-up">
     <div class="work-card"><img class="work-img" src="images/f.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/tyhrte.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/hjy56e.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
@@ -316,7 +395,7 @@ footer{
 
 <section id="project">
   <h2 class="section-title">项目实践经历</h2>
-  <div class="timeline">
+  <div class="timeline fade-up">
     <div class="timeline-item">
       <div class="card">
         <h3>在校外包建模项目</h3>
@@ -339,8 +418,8 @@ footer{
 </section>
 
 <section id="edu">
-  <h2 class="section-title">教育信息</h2>
-  <div class="card">
+  <h2 class="section-title">教育经历</h2>
+  <div class="card fade-up">
     <h3>成都职业技术学院</h3>
     <p>专业：虚拟现实技术应用</p>
     <p>在读，主攻次世代3D美术方向，学习建模、材质、引擎、渲染全套流程</p>
@@ -349,14 +428,14 @@ footer{
 
 <section id="honor">
   <h2 class="section-title">荣誉证书</h2>
-  <div class="card">
+  <div class="card fade-up">
     <p>计算机二级、3ds Max中级证书、CAD证书等技能证书</p>
   </div>
 </section>
 
 <section id="contact">
   <h2 class="section-title">联系我</h2>
-  <div class="card">
+  <div class="card fade-up">
     <h3>求职联系</h3>
     <p>意向岗位：成都武侯区 PBR次世代全流程建模渲染岗</p>
     <p>可线上发作品集源文件、工程文件，可接受试稿</p>
@@ -364,7 +443,8 @@ footer{
 </section>
 
 <footer>
-  <p>© 2026 谭雪情 3D作品集 | 全部资产本人独立制作</p>
+  <p>© 2026 谭雪情 · 3D次世代游戏模型师作品集</p>
+  <p style="margin-top:6px;opacity:0.7;">全部作品均为本人独立制作</p>
 </footer>
 
 <div class="img-modal" id="modal">
@@ -374,43 +454,53 @@ footer{
 <button id="backTop">↑</button>
 
 <script>
-// 大图弹窗
+// 大图预览
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
-const imgs = document.querySelectorAll(".work-img");
-const closeBtn = document.querySelector(".close-modal");
-imgs.forEach(img => {
-  img.onclick = () => {
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-  };
+document.querySelectorAll(".work-img").forEach(img => {
+  img.onclick = () => { modal.style.display = "flex"; modalImg.src = img.src; };
 });
-closeBtn.onclick = () => modal.style.display = "none";
-modal.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
+document.querySelector(".close-modal").onclick = () => modal.style.display = "none";
+modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.style.display = "none"; });
 
 // 返回顶部
 const backTop = document.getElementById("backTop");
 window.onscroll = () => {
-  if (window.scrollY > 400) backTop.style.display = "block";
-  else backTop.style.display = "none";
+  backTop.style.display = window.scrollY > 400 ? "block" : "none";
 };
 backTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-// 技能条动画
+// 技能条动画（进入视口时触发）
 const bars = document.querySelectorAll(".bar-fill");
 const skillSection = document.getElementById("skill");
-let barAnimate = false;
-window.addEventListener("scroll", () => {
+let barAnimated = false;
+const checkBars = () => {
+  if (barAnimated || !skillSection) return;
   const rect = skillSection.getBoundingClientRect();
-  if (rect.top < window.innerHeight * 0.75 && !barAnimate) {
-    barAnimate = true;
-    bars.forEach(bar => {
-      const val = bar.dataset.val;
-      bar.style.width = val + "%";
-    });
+  if (rect.top < window.innerHeight * 0.75) {
+    barAnimated = true;
+    bars.forEach(bar => bar.style.width = bar.dataset.val + "%");
   }
+};
+window.addEventListener("scroll", checkBars);
+
+// 滚动渐入动画
+const fadeEls = document.querySelectorAll(".fade-up");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+fadeEls.forEach(el => observer.observe(el));
+
+// 导航栏滚动阴影
+window.addEventListener("scroll", () => {
+  const h = document.querySelector("header");
+  h.style.boxShadow = window.scrollY > 20 ? "0 4px 30px rgba(0,0,0,0.4)" : "none";
 });
 </script>
 </body>
