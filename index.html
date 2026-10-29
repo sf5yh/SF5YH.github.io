@@ -114,6 +114,11 @@ section{padding:85px 55px;}
   transition:0.28s;
 }
 .work-card:hover{transform:translateY(-8px);box-shadow:0 12px 26px #ff880022;}
+.work-img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
 .work-desc{padding:18px;}
 .work-desc h4{margin-bottom:7px;color:#4e3c2d;}
 .work-desc p{font-size:14px;color:#75604c;}
@@ -285,23 +290,27 @@ footer{
   <h2 class="section-title">作品集展示</h2>
   <div class="work-grid">
     <div class="work-card">
+      <img class="work-img" src="prop1.png" alt="硬表面游戏道具">
       <div class="work-desc">
         <h4>硬表面游戏道具</h4>
         <p>3ds Max建模，PBR材质，符合游戏资产面数标准</p>
       </div>
     </div>
     <div class="work-card">
+      <img class="work-img" src="prop2.png" alt="次世代道具练习">
       <div class="work-desc">
         <h4>次世代道具练习</h4>
         <p>拓扑低模，UV拆分，SP绘制全套PBR贴图</p>
       </div>
     </div>
+    <!-- 删掉了street.png的img，卡片保留 -->
     <div class="work-card">
       <div class="work-desc">
         <h4>卡通街道场景</h4>
         <p>多资产组合搭建，UE引擎灯光与材质调试</p>
       </div>
     </div>
+    <!-- 删掉了room.png的img，卡片保留 -->
     <div class="work-card">
       <div class="work-desc">
         <h4>卡通卧室室内场景</h4>
@@ -309,20 +318,19 @@ footer{
       </div>
     </div>
     <div class="work-card">
+      <img class="work-img" src="prop3.png" alt="道具资产练习">
       <div class="work-desc">
         <h4>道具资产练习</h4>
         <p>硬表面结构练习，倒角与细节处理</p>
       </div>
     </div>
     <div class="work-card">
+      <img class="work-img" src="render.png" alt="场景氛围渲染">
       <div class="work-desc">
         <h4>场景氛围渲染</h4>
         <p>资产整理，引擎灯光调试输出效果图</p>
       </div>
     </div>
-  </div>
-  <div class="card" style="margin-top:24px;">
-    <p>💡后期添加图片：只需要在每个work‑card内部，work‑desc上面，插入&lt;img src="你的图片文件名.png"&gt;即可。</p>
   </div>
 </section>
 
@@ -420,12 +428,21 @@ footer{
 <button id="backTop">↑</button>
 
 <script>
+// 图片点击放大弹窗
 const modal = document.getElementById("imgModal");
 const modalImg = document.getElementById("modalImg");
 const closeModal = document.querySelector(".close-modal");
+// 绑定所有作品图片点击弹窗
+document.querySelectorAll(".work-img").forEach(img=>{
+  img.onclick = ()=>{
+    modalImg.src = img.src;
+    modal.style.display = "flex";
+  }
+})
 closeModal.onclick=()=>modal.style.display="none";
 modal.onclick=e=>{if(e.target===modal) modal.style.display="none";}
 
+// 返回顶部
 const backTopBtn = document.getElementById("backTop");
 window.addEventListener("scroll",()=>{
   if(window.scrollY>450){
@@ -436,6 +453,7 @@ window.addEventListener("scroll",()=>{
 })
 backTopBtn.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
+// 技能条动画
 const skillBars = document.querySelectorAll(".bar-fill");
 const skillSection = document.getElementById("skill");
 let skillAnimate = false;
