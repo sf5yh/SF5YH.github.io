@@ -5,176 +5,172 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>谭雪情｜3D次世代游戏模型师作品集</title>
 <style>
-/* ========== 基础重置 ========== */
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
   font-family:"Microsoft YaHei","PingFang SC","Helvetica Neue",sans-serif;
-  background:#0f1115;
-  color:#e8e6e3;
+  background:#ffffff;
+  color:#2d2a26;
   line-height:1.75;
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none;}
 
-/* ========== 导航栏 ========== */
+/* ===== 导航栏 ===== */
 header{
   position:fixed;top:0;left:0;width:100%;
   padding:14px 48px;z-index:999;
   display:flex;justify-content:space-between;align-items:center;
-  background:rgba(15,17,21,0.72);
-  backdrop-filter:blur(18px);
-  -webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.82);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(0,0,0,0.05);
   transition:all 0.3s;
 }
 .logo{
   font-size:18px;font-weight:700;letter-spacing:2px;
-  background:linear-gradient(90deg,#ff9966,#ff5e62);
+  background:linear-gradient(90deg,#ff8c5a,#ff5e62);
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 nav{display:flex;gap:26px;flex-wrap:wrap;}
 nav a{
-  font-size:13.5px;color:#b5b0a8;position:relative;padding:4px 0;
+  font-size:13.5px;color:#6b6660;position:relative;padding:4px 0;
   transition:color 0.25s;
 }
 nav a::after{
   content:"";position:absolute;bottom:-2px;left:0;width:0;height:2px;
-  background:linear-gradient(90deg,#ff9966,#ff5e62);transition:width 0.3s;
+  background:linear-gradient(90deg,#ff8c5a,#ff5e62);transition:width 0.3s;
 }
-nav a:hover{color:#fff;}
+nav a:hover{color:#2d2a26;}
 nav a:hover::after{width:100%;}
 .nav-btn{
   padding:8px 22px;border-radius:30px;font-size:13px;
-  background:linear-gradient(90deg,#ff9966,#ff5e62);color:#fff!important;
-  box-shadow:0 4px 18px rgba(255,94,98,0.3);
+  background:linear-gradient(90deg,#ff8c5a,#ff5e62);color:#fff!important;
+  box-shadow:0 4px 14px rgba(255,94,98,0.28);
   transition:transform 0.25s,box-shadow 0.25s;
 }
-.nav-btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(255,94,98,0.45);}
+.nav-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,94,98,0.4);}
 
-/* ========== Hero首页 ========== */
+/* ===== Hero ===== */
 .hero{
   min-height:100vh;
   padding:120px 56px 80px;
   display:grid;grid-template-columns:1fr 1fr;
   align-items:center;gap:60px;
-  background:radial-gradient(ellipse at 30% 20%,rgba(255,153,102,0.15),transparent 60%),
-              radial-gradient(ellipse at 70% 80%,rgba(255,94,98,0.12),transparent 55%),
-              #0f1115;
+  background:radial-gradient(ellipse at 30% 20%,rgba(255,140,90,0.12),transparent 60%),
+              radial-gradient(ellipse at 70% 80%,rgba(255,94,98,0.1),transparent 55%),
+              #fffaf5;
 }
 .hero-sub{
-  color:#ff9966;font-size:13px;letter-spacing:4px;margin-bottom:18px;
+  color:#ff8c5a;font-size:13px;letter-spacing:4px;margin-bottom:18px;
   text-transform:uppercase;font-weight:500;
 }
 .hero-text h1{
-  font-size:72px;font-weight:800;color:#fff;margin-bottom:10px;letter-spacing:-1px;
-  background:linear-gradient(135deg,#fff 30%,#ffd4b8);
+  font-size:72px;font-weight:800;margin-bottom:10px;letter-spacing:-1px;
+  background:linear-gradient(135deg,#2d2a26 40%,#ff8c5a);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   line-height:1.1;
 }
-.hero-job{font-size:18px;color:#a8a29a;margin-bottom:36px;letter-spacing:1px;}
+.hero-job{font-size:18px;color:#6b6660;margin-bottom:36px;letter-spacing:1px;}
 .hero-buttons{display:flex;gap:16px;margin-bottom:42px;}
 .btn-primary{
   padding:14px 34px;border-radius:34px;font-size:14.5px;font-weight:600;
-  background:linear-gradient(90deg,#ff9966,#ff5e62);color:#fff;
-  box-shadow:0 6px 22px rgba(255,94,98,0.35);
+  background:linear-gradient(90deg,#ff8c5a,#ff5e62);color:#fff;
+  box-shadow:0 6px 20px rgba(255,94,98,0.32);
   transition:transform 0.25s,box-shadow 0.25s;
   cursor:pointer;border:none;display:inline-block;
 }
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,94,98,0.5);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(255,94,98,0.45);}
 .btn-ghost{
   padding:14px 34px;border-radius:34px;font-size:14.5px;font-weight:600;
-  background:rgba(255,255,255,0.06);color:#e8e6e3;
-  border:1px solid rgba(255,255,255,0.15);
-  transition:background 0.25s,border-color 0.25s;
+  background:#fff;color:#2d2a26;
+  border:1px solid #e8e0d6;
+  transition:background 0.25s,border-color 0.25s,color 0.25s;
   display:inline-block;
 }
-.btn-ghost:hover{background:rgba(255,255,255,0.1);border-color:#ff9966;}
+.btn-ghost:hover{background:#fff5ef;border-color:#ff8c5a;color:#ff5e62;}
 .tags-wrap{display:flex;flex-wrap:wrap;gap:10px;}
 .tag{
   padding:7px 16px;border-radius:20px;font-size:12.5px;
-  background:rgba(255,255,255,0.05);color:#d4cfc7;
-  border:1px solid rgba(255,255,255,0.1);
+  background:#fff;color:#5d5850;
+  border:1px solid #f0e8dc;
   transition:all 0.25s;
 }
 .tag:hover{
-  background:linear-gradient(90deg,rgba(255,153,102,0.2),rgba(255,94,98,0.2));
-  border-color:#ff9966;color:#fff;transform:translateY(-2px);
+  background:linear-gradient(90deg,rgba(255,140,90,0.14),rgba(255,94,98,0.12));
+  border-color:#ff8c5a;color:#ff5e62;transform:translateY(-2px);
 }
 
 /* 头像 */
 .hero-img-box{display:flex;justify-content:center;align-items:center;}
-.avatar-wrap{
-  position:relative;width:380px;height:480px;
-}
+.avatar-wrap{position:relative;width:380px;height:480px;}
 .avatar-wrap::before{
   content:"";position:absolute;inset:-8px;border-radius:28px;
-  background:linear-gradient(135deg,#ff9966,#ff5e62,#ff9966);
+  background:linear-gradient(135deg,#ff8c5a,#ff5e62,#ff8c5a);
   z-index:-1;animation:spin 6s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg);}}
 .avatar-box{
   width:100%;height:100%;border-radius:24px;overflow:hidden;
-  border:3px solid #0f1115;
+  border:3px solid #fff;box-shadow:0 20px 50px rgba(0,0,0,0.08);
 }
 .avatar-box img{width:100%;height:100%;object-fit:cover;display:block;}
 
-/* ========== 通用区块 ========== */
-section{padding:100px 56px;}
+/* ===== 通用区块 ===== */
+section{padding:100px 56px;background:#fff;}
 .section-title{
-  font-size:36px;font-weight:800;color:#fff;margin-bottom:50px;
+  font-size:36px;font-weight:800;color:#2d2a26;margin-bottom:50px;
   display:flex;align-items:center;gap:16px;letter-spacing:-0.5px;
 }
 .section-title::before{
   content:"";width:5px;height:36px;border-radius:3px;
-  background:linear-gradient(180deg,#ff9966,#ff5e62);
+  background:linear-gradient(180deg,#ff8c5a,#ff5e62);
 }
 .card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
+  background:#fff;
+  border:1px solid #efe6d8;
   border-radius:18px;padding:32px;
-  transition:border-color 0.3s,transform 0.3s;
+  transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;
 }
-.card:hover{border-color:rgba(255,153,102,0.4);transform:translateY(-3px);}
+.card:hover{border-color:rgba(255,140,90,0.5);transform:translateY(-3px);box-shadow:0 12px 30px rgba(255,94,98,0.08);}
 .card h3{
-  color:#ff9966;margin-bottom:14px;font-size:20px;font-weight:700;
+  color:#ff5e62;margin-bottom:14px;font-size:20px;font-weight:700;
   display:flex;align-items:center;gap:10px;
 }
 .card h3::before{
   content:"";width:8px;height:8px;border-radius:50%;
-  background:linear-gradient(135deg,#ff9966,#ff5e62);
+  background:linear-gradient(135deg,#ff8c5a,#ff5e62);
 }
-.card p{color:#c5bfb6;margin-bottom:6px;font-size:14.5px;}
+.card p{color:#4a4540;margin-bottom:6px;font-size:14.5px;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px;}
 
-/* ========== 技能条 ========== */
+/* ===== 技能条 ===== */
 .bar-item{margin-bottom:18px;}
-.bar-row{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#c5bfb6;}
-.bar-row span:last-child{color:#ff9966;font-weight:600;}
-.bar-bg{height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;}
+.bar-row{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px;color:#4a4540;}
+.bar-row span:last-child{color:#ff5e62;font-weight:600;}
+.bar-bg{height:8px;background:#f4ecdf;border-radius:4px;overflow:hidden;}
 .bar-fill{
   height:100%;border-radius:4px;width:0;transition:width 1.4s cubic-bezier(0.22,1,0.36,1);
-  background:linear-gradient(90deg,#ff9966,#ff5e62);
+  background:linear-gradient(90deg,#ff8c5a,#ff5e62);
 }
 
-/* ========== 作品集网格 ========== */
-#portfolio{background:#0a0c10;}
+/* ===== 作品集 ===== */
+#portfolio{background:#fffaf5;}
 .work-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
   gap:22px;
 }
 .work-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.06);
+  background:#fff;
+  border:1px solid #efe6d8;
   border-radius:16px;overflow:hidden;
   transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),box-shadow 0.35s,border-color 0.35s;
   cursor:pointer;
 }
 .work-card:hover{
   transform:translateY(-8px);
-  border-color:rgba(255,153,102,0.35);
-  box-shadow:0 20px 48px rgba(0,0,0,0.5),0 0 0 1px rgba(255,153,102,0.2);
+  border-color:rgba(255,140,90,0.45);
+  box-shadow:0 20px 48px rgba(255,94,98,0.12);
 }
 .work-img{
   width:100%;height:220px;object-fit:cover;display:block;
@@ -182,67 +178,67 @@ section{padding:100px 56px;}
 }
 .work-card:hover .work-img{transform:scale(1.06);}
 .work-desc{padding:18px 20px;}
-.work-desc h4{color:#fff;margin-bottom:4px;font-size:15px;font-weight:600;}
+.work-desc h4{color:#2d2a26;margin-bottom:4px;font-size:15px;font-weight:600;}
 .work-desc p{color:#8a847c;font-size:13px;}
 
-/* ========== 时间线 ========== */
+/* ===== 时间线 ===== */
 .timeline{position:relative;padding-left:34px;}
 .timeline::before{
   content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
-  background:linear-gradient(180deg,#ff9966,#ff5e62,transparent);
+  background:linear-gradient(180deg,#ff8c5a,#ff5e62,transparent);
 }
 .timeline-item{position:relative;margin-bottom:28px;}
 .timeline-item::before{
   content:"";position:absolute;left:-34px;top:24px;
   width:14px;height:14px;border-radius:50%;
-  background:linear-gradient(135deg,#ff9966,#ff5e62);
-  box-shadow:0 0 0 4px #0f1115,0 0 0 6px rgba(255,94,98,0.25);
+  background:linear-gradient(135deg,#ff8c5a,#ff5e62);
+  box-shadow:0 0 0 4px #fff,0 0 0 6px rgba(255,94,98,0.2);
   z-index:1;
 }
 
-/* ========== 大图预览模态 ========== */
+/* ===== 大图预览 ===== */
 .img-modal{
   position:fixed;inset:0;z-index:1000;
-  background:rgba(0,0,0,0.92);
+  background:rgba(20,18,15,0.9);
   display:none;align-items:center;justify-content:center;
   animation:fadeIn 0.25s;
 }
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
-.img-modal img{max-width:92%;max-height:90vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.6);}
+.img-modal img{max-width:92%;max-height:90vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.4);}
 .close-modal{
   position:absolute;top:24px;right:36px;
   color:#fff;font-size:36px;cursor:pointer;font-weight:300;
   width:48px;height:48px;border-radius:50%;
-  background:rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.12);
   display:flex;align-items:center;justify-content:center;
   transition:background 0.25s,transform 0.25s;
 }
 .close-modal:hover{background:rgba(255,94,98,0.5);transform:rotate(90deg);}
 
-/* ========== 返回顶部 ========== */
+/* ===== 返回顶部 ===== */
 #backTop{
   position:fixed;right:32px;bottom:32px;
   width:48px;height:48px;border-radius:50%;border:none;
-  background:linear-gradient(135deg,#ff9966,#ff5e62);color:#fff;font-size:18px;
+  background:linear-gradient(135deg,#ff8c5a,#ff5e62);color:#fff;font-size:18px;
   cursor:pointer;display:none;z-index:98;
-  box-shadow:0 6px 20px rgba(255,94,98,0.35);
+  box-shadow:0 6px 18px rgba(255,94,98,0.32);
   transition:transform 0.25s,box-shadow 0.25s;
 }
-#backTop:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(255,94,98,0.5);}
+#backTop:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(255,94,98,0.45);}
 
-/* ========== 底部 ========== */
+/* ===== 底部 ===== */
 footer{
   text-align:center;padding:40px 20px;
-  border-top:1px solid rgba(255,255,255,0.06);
-  color:#6a655d;font-size:13px;
-  background:#0a0c10;
+  border-top:1px solid #efe6d8;
+  color:#8a847c;font-size:13px;
+  background:#fffaf5;
 }
 
-/* ========== 滚动动画 ========== */
+/* ===== 滚动动画 ===== */
 .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s,transform 0.7s;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
-/* ========== 响应式 ========== */
+/* ===== 响应式 ===== */
 @media(max-width:900px){
   header{padding:12px 18px;}
   nav{gap:12px;}
@@ -379,6 +375,7 @@ footer{
     <div class="work-card"><img class="work-img" src="images/ygr.jpg" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/1111.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/33a19000c1bf042d9bf300e5c9b350ef.jpg" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
+    <div class="work-card"><img class="work-img" src="images/image-new.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/图片1.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/图片2.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
     <div class="work-card"><img class="work-img" src="images/图片3.png" alt="作品"><div class="work-desc"><h4>3D道具作品</h4><p>硬表面道具建模、PBR材质渲染</p></div></div>
@@ -454,7 +451,6 @@ footer{
 <button id="backTop">↑</button>
 
 <script>
-// 大图预览
 const modal = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
 document.querySelectorAll(".work-img").forEach(img => {
@@ -464,28 +460,24 @@ document.querySelector(".close-modal").onclick = () => modal.style.display = "no
 modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") modal.style.display = "none"; });
 
-// 返回顶部
 const backTop = document.getElementById("backTop");
 window.onscroll = () => {
   backTop.style.display = window.scrollY > 400 ? "block" : "none";
 };
 backTop.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-// 技能条动画（进入视口时触发）
 const bars = document.querySelectorAll(".bar-fill");
 const skillSection = document.getElementById("skill");
 let barAnimated = false;
-const checkBars = () => {
+window.addEventListener("scroll", () => {
   if (barAnimated || !skillSection) return;
   const rect = skillSection.getBoundingClientRect();
   if (rect.top < window.innerHeight * 0.75) {
     barAnimated = true;
     bars.forEach(bar => bar.style.width = bar.dataset.val + "%");
   }
-};
-window.addEventListener("scroll", checkBars);
+});
 
-// 滚动渐入动画
 const fadeEls = document.querySelectorAll(".fade-up");
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -497,10 +489,9 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 fadeEls.forEach(el => observer.observe(el));
 
-// 导航栏滚动阴影
 window.addEventListener("scroll", () => {
-  const h = document.querySelector("header");
-  h.style.boxShadow = window.scrollY > 20 ? "0 4px 30px rgba(0,0,0,0.4)" : "none";
+  document.querySelector("header").style.boxShadow =
+    window.scrollY > 20 ? "0 4px 30px rgba(255,94,98,0.08)" : "none";
 });
 </script>
 </body>
